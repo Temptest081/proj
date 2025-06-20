@@ -21,31 +21,36 @@ Public Class SigninForm
             Return
         End If
 
-        ' Check if the credentials exist in the database
         Dim connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("SELECT Role FROM users WHERE IdNumber = @id AND Password = @pass", conn)
+            ' Get the hashed password and role for the user
+            Dim cmd As New SqlCommand("SELECT Password, Role FROM users WHERE IdNumber = @id", conn)
             cmd.Parameters.AddWithValue("@id", idNumber)
-            cmd.Parameters.AddWithValue("@pass", password)
 
             conn.Open()
-            Dim result = cmd.ExecuteScalar()
+            Dim reader = cmd.ExecuteReader()
 
-            If result IsNot Nothing Then
-                role = result.ToString().ToLower()
+            If reader.Read() Then
+                Dim storedHash = reader.GetString(0)
+                role = reader.GetString(1).ToLower()
 
-                Select Case role
-                    Case "doctor"
-                        Dim docForm As New DoctorForm()
-                        docForm.Show()
-                        Me.Hide()
-                    Case "nurse"
-                        Dim nurseForm As New NurseForm()
-                        nurseForm.Show()
-                        Me.Hide()
-                    Case Else
-                        labelMessage.Text = "Only doctor or nurse logins are allowed here."
-                End Select
+                ' Check hashed password
+                If PasswordHelper.VerifyPassword(password, storedHash) Then
+                    Select Case role
+                        Case "doctor"
+                            Dim docForm As New DoctorForm()
+                            docForm.Show()
+                            Me.Hide()
+                        Case "nurse"
+                            Dim nurseForm As New NurseForm()
+                            nurseForm.Show()
+                            Me.Hide()
+                        Case Else
+                            labelMessage.Text = "Only doctor or nurse logins are allowed here."
+                    End Select
+                Else
+                    labelMessage.Text = "Invalid ID number or password!"
+                End If
             Else
                 labelMessage.Text = "Invalid ID number or password!"
             End If

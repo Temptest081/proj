@@ -28,7 +28,6 @@ Partial Class PatientView
         Me.CollabTableAdapter = New Project.New_DatabaseDataSetTableAdapters.collabTableAdapter()
         Me.TableAdapterManager = New Project.New_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.CollabDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ButtonSearch = New System.Windows.Forms.Button()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,18 +85,9 @@ Partial Class PatientView
         Me.CollabDataGridView.Size = New System.Drawing.Size(776, 403)
         Me.CollabDataGridView.TabIndex = 1
         '
-        'ButtonSearch
-        '
-        Me.ButtonSearch.Location = New System.Drawing.Point(678, 12)
-        Me.ButtonSearch.Name = "ButtonSearch"
-        Me.ButtonSearch.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonSearch.TabIndex = 2
-        Me.ButtonSearch.Text = "Search"
-        Me.ButtonSearch.UseVisualStyleBackColor = True
-        '
         'TextBoxSearch
         '
-        Me.TextBoxSearch.Location = New System.Drawing.Point(572, 12)
+        Me.TextBoxSearch.Location = New System.Drawing.Point(653, 15)
         Me.TextBoxSearch.Name = "TextBoxSearch"
         Me.TextBoxSearch.Size = New System.Drawing.Size(100, 20)
         Me.TextBoxSearch.TabIndex = 3
@@ -233,7 +223,6 @@ Partial Class PatientView
         Me.ClientSize = New System.Drawing.Size(800, 456)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.TextBoxSearch)
-        Me.Controls.Add(Me.ButtonSearch)
         Me.Controls.Add(Me.CollabDataGridView)
         Me.Name = "PatientView"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -251,7 +240,6 @@ Partial Class PatientView
     Friend WithEvents CollabTableAdapter As New_DatabaseDataSetTableAdapters.collabTableAdapter
     Friend WithEvents TableAdapterManager As New_DatabaseDataSetTableAdapters.TableAdapterManager
     Friend WithEvents CollabDataGridView As DataGridView
-    Friend WithEvents ButtonSearch As Button
     Friend WithEvents TextBoxSearch As TextBox
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn

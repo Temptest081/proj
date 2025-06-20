@@ -12,16 +12,7 @@
     End Sub
 
 
-    ' 🔍 Search button click
-    Private Sub ButtonSearch_Click(sender As Object, e As EventArgs) Handles ButtonSearch.Click
-        Dim keyword As String = TextBoxSearch.Text.Trim().Replace("'", "''")
 
-        If keyword = "" Then
-            CollabBindingSource.RemoveFilter() ' Reset to full list
-        Else
-            CollabBindingSource.Filter = $"Name LIKE '%{keyword}%'"
-        End If
-    End Sub
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
         Dim keyword As String = TextBoxSearch.Text.Trim().Replace("'", "''")
 
@@ -33,28 +24,20 @@
     End Sub
 
 
-    ' Optional: trigger search when pressing Enter
-    Private Sub TextBoxSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxSearch.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            ButtonSearch.PerformClick()
-        End If
-    End Sub
-
-
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         MessageBox.Show(
             "📋 Patient Search Bar - FAQ" & vbCrLf & vbCrLf &
-            "🔍 Q1: How does the search bar work?" & vbCrLf &
-            "Type part or full patient name and click Search or press Enter." & vbCrLf & vbCrLf &
-            "🔡 Q2: Do I need to type the full name?" & vbCrLf &
-            "No, partial names like 'Mar' will match Maria, Marvin, etc." & vbCrLf & vbCrLf &
-            "🔄 Q3: How do I reset the search?" & vbCrLf &
-            "Clear the search box and click Search to view all patients again." & vbCrLf & vbCrLf &
-            "🧠 Q4: What does the search look at?" & vbCrLf &
-            "It only checks the Name field. Not age, gender, or other fields." & vbCrLf & vbCrLf &
-            "⚠️ Q5: Why is nothing showing?" & vbCrLf &
-            "You may have typed a name that doesn't exist. Try again or clear the box.",
-            "Patient Search Bar – FAQ", MessageBoxButtons.OK, MessageBoxIcon.Information)
+"🔍 Q1: How does the search bar work?" & vbCrLf &
+"Just start typing part or all of a patient's name—the list updates automatically as you type." & vbCrLf & vbCrLf &
+"🔡 Q2: Do I need to type the full name?" & vbCrLf &
+"No, you can type any part of the name. For example, 'Mar' will match Maria, Marvin, etc." & vbCrLf & vbCrLf &
+"🔄 Q3: How do I reset the search?" & vbCrLf &
+"Clear the search box to show all patients again." & vbCrLf & vbCrLf &
+"🧠 Q4: What does the search look at?" & vbCrLf &
+"It only checks the Name field, not age, gender, or other details." & vbCrLf & vbCrLf &
+"⚠️ Q5: Why is nothing showing?" & vbCrLf &
+"You may have typed a name that doesn't exist. Try clearing the box to see all patients.",
+"Patient Search Bar – FAQ", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
 End Class

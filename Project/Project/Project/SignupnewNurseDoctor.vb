@@ -1,13 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class SignupnewNurseDoctor
-
     Dim connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
 
     Private Sub SignupnewNurseDoctor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBoxRole.Items.Add("nurse")
         ComboBoxRole.Items.Add("doctor")
-        ComboBoxRole.SelectedIndex = 0 ' Default to nurse
+        ComboBoxRole.SelectedIndex = 0
     End Sub
 
     Private Sub ComboBoxRole_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxRole.SelectedIndexChanged
@@ -26,7 +25,7 @@ Public Class SignupnewNurseDoctor
             Return
         End If
 
-        ' 🔐 Admin check for doctor
+        ' Admin check for doctor
         If role = "doctor" Then
             Dim adminKey = TextBoxAdminKey.Text.Trim()
 
@@ -41,33 +40,40 @@ Public Class SignupnewNurseDoctor
             End If
         End If
 
-        ' ✅ Insert new user
+        ' Insert new user with hashed password
         Using conn As New SqlConnection(connStr)
             Dim cmd As New SqlCommand("INSERT INTO users (IdNumber, Password, Role) VALUES (@id, @pass, @role)", conn)
             cmd.Parameters.AddWithValue("@id", idNumber)
-            cmd.Parameters.AddWithValue("@pass", password)
+            Dim hashedPassword As String = PasswordHelper.HashPassword(password)
+            cmd.Parameters.AddWithValue("@pass", hashedPassword)
             cmd.Parameters.AddWithValue("@role", role)
 
             conn.Open()
-            cmd.ExecuteNonQuery()
+            Try
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            ' Clear inputs
-            TextBoxID.Text = ""
-            TextBoxPass.Text = ""
-            TextBoxAdminKey.Text = ""
+                ' Clear inputs
+                TextBoxID.Text = ""
+                TextBoxPass.Text = ""
+                TextBoxAdminKey.Text = ""
+            Catch ex As SqlException
+                MessageBox.Show("Error creating account: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End Using
     End Sub
 
+    ' Checks admin password using hashed comparison
     Private Function IsAdminPasswordValid(adminPass As String) As Boolean
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM users WHERE Role = 'admin' AND Password = @pass", conn)
-            cmd.Parameters.AddWithValue("@pass", adminPass)
-
+            Dim cmd As New SqlCommand("SELECT Password FROM users WHERE Role = 'admin'", conn)
             conn.Open()
-            Return Convert.ToInt32(cmd.ExecuteScalar()) > 0
+            Dim reader = cmd.ExecuteReader()
+            If reader.Read() Then
+                Dim storedHash = reader.GetString(0)
+                Return PasswordHelper.VerifyPassword(adminPass, storedHash)
+            End If
         End Using
+        Return False
     End Function
-
 End Class

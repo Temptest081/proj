@@ -87,6 +87,7 @@
     <Compile Include="New_DatabaseDataSet.vb">
       <DependentUpon>New_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHelper.vb" />
     <Compile Include="PatientForm.Designer.vb">
       <DependentUpon>PatientForm.vb</DependentUpon>
     </Compile>
