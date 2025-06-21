@@ -65,3 +65,4 @@ C:\Users\PC\OneDrive\Desktop\ICCT Lessons\Project\Project\Project\obj\Debug\Proj
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.PatientSignup.resources
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.PatientView.resources
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.SignupnewNurseDoctor.resources
+C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.InformationForm.resources

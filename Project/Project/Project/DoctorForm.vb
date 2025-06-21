@@ -4,7 +4,14 @@ Public Class DoctorForm
 
     Dim connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
 
+    ' User info properties
+    Public Property CurrentUserName As String
+    Public Property CurrentUserId As String
+    Public Property CurrentUserRole As String
+
     Private Sub DoctorForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        labelUserName.Text = $"Role: {CurrentUserRole}"
+        labelUserId.Text = $"ID: {CurrentUserId}"
         LoadPatientList()
     End Sub
 
@@ -14,12 +21,9 @@ Public Class DoctorForm
             Dim dt As New DataTable()
             conn.Open()
             dt.Load(cmd.ExecuteReader())
-
             patientList.DisplayMember = "Name"
             patientList.ValueMember = "Id"
             patientList.DataSource = dt
-
-            ' Attach event AFTER setting DataSource
             AddHandler patientList.SelectedIndexChanged, AddressOf PatientList_SelectedIndexChanged
         End Using
     End Sub
@@ -36,7 +40,6 @@ Public Class DoctorForm
             Dim cmd As New SqlCommand("SELECT * FROM collab WHERE Id = @Id", conn)
             cmd.Parameters.AddWithValue("@Id", patientId)
             conn.Open()
-
             Using reader As SqlDataReader = cmd.ExecuteReader()
                 If reader.Read() Then
                     Dim name As String = reader("Name").ToString()
@@ -64,14 +67,12 @@ Public Class DoctorForm
                     TextBoxPrescribe.Text = $"Name: {name}{Environment.NewLine}Prescription: "
                     TextBoxPrescribe.SelectionStart = TextBoxPrescribe.Text.Length
 
-                    ' ✅ Load saved appointment if available
                     If Not IsDBNull(reader("AppointmentDate")) Then
                         Dim apptDate As Date = Convert.ToDateTime(reader("AppointmentDate"))
                         MonthCalendar1.SetDate(apptDate)
                     Else
-                        MonthCalendar1.SetDate(Date.Today) ' Optional: default to today
+                        MonthCalendar1.SetDate(Date.Today)
                     End If
-
                 Else
                     patientDetailsText.Text = "Patient not found."
                 End If
@@ -91,36 +92,45 @@ Public Class DoctorForm
     End Sub
 
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
-        ' Make sure a patient is selected
         If patientList.SelectedValue Is Nothing OrElse Not TypeOf patientList.SelectedValue Is Integer Then
             MessageBox.Show("Please select a patient first.")
             Return
         End If
 
         Dim patientId As Integer = CInt(patientList.SelectedValue)
-
-        ' Extract prescription
         Dim prescription As String = TextBoxPrescribe.Text.Replace($"Name: {patientList.Text}{Environment.NewLine}Prescription: ", "").Trim()
-
-        ' Extract selected date from the calendar
         Dim appointmentDate As Date = MonthCalendar1.SelectionStart
 
-        ' Save both to database
         Using conn As New SqlConnection(connStr)
             Dim cmd As New SqlCommand("UPDATE collab SET Symptoms = @symptoms, AppointmentDate = @appt WHERE Id = @id", conn)
             cmd.Parameters.AddWithValue("@symptoms", prescription)
             cmd.Parameters.AddWithValue("@appt", appointmentDate)
             cmd.Parameters.AddWithValue("@id", patientId)
-
             conn.Open()
             Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-
             If rowsAffected > 0 Then
                 MessageBox.Show("Patient data and appointment saved successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Save failed. No record updated.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End Using
+    End Sub
+
+    Private Sub InfoTab_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles InfoTab.LinkClicked
+        ' Only clear and change Panel2, leave the rest of the dashboard untouched
+        Panel2.Controls.Clear()
+        Dim infoForm As New InformationForm()
+        infoForm.TopLevel = False
+        infoForm.FormBorderStyle = FormBorderStyle.None
+        infoForm.Dock = DockStyle.Fill
+        Panel2.Controls.Add(infoForm)
+        infoForm.Show()
+    End Sub
+
+    ' Optional: Restore Panel2 to original controls (if you want a "back" or "dashboard" button)
+    Public Sub RestorePanel2()
+        Panel2.Controls.Clear()
+        ' Add code here to re-add your original Panel2 controls if needed
     End Sub
 
 End Class

@@ -37,7 +37,27 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Project.New_DatabaseDataSet.doctorsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSet.usersDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Project.New_DatabaseDataSet.collabRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSet.doctorsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSet.usersRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -47,7 +67,27 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
+<member name="T:Project.New_DatabaseDataSet.doctorsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSet.usersRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Project.New_DatabaseDataSetTableAdapters.collabTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSetTableAdapters.doctorsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Project.New_DatabaseDataSetTableAdapters.usersTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

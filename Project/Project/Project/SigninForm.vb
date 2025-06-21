@@ -39,6 +39,8 @@ Public Class SigninForm
                     Select Case role
                         Case "doctor"
                             Dim docForm As New DoctorForm()
+                            docForm.CurrentUserRole = "Doctor"
+                            docForm.CurrentUserId = idNumber
                             docForm.Show()
                             Me.Hide()
                         Case "nurse"
@@ -75,6 +77,5 @@ Public Class SigninForm
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Dim patientForm As New PatientForm()
         PatientView.ShowDialog()
-
     End Sub
 End Class

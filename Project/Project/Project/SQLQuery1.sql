@@ -100,3 +100,21 @@ ELSE
     INSERT INTO users (IdNumber, Password, Role) VALUES ('N2001', 'nurse123', 'nurse');
 -- To hash nurse password, generate a hash for 'nurse123' and update:
 -- UPDATE users SET Password = 'HASHED_NURSE_PASSWORD_HERE' WHERE IdNumber = 'N2001';
+CREATE TABLE doctors (
+    DoctorId INT IDENTITY(1,1) PRIMARY KEY,
+    UserId INT NOT NULL FOREIGN KEY REFERENCES users(Id),
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Gender VARCHAR(10),
+    DateOfBirth DATE,
+    ContactNumber VARCHAR(20),
+    Specialty VARCHAR(50),
+    Qualifications VARCHAR(100),
+    YearsExperience INT,
+    Department VARCHAR(50),
+    LicenseNumber VARCHAR(50),
+    MedicalSchool VARCHAR(100),
+    DateJoined DATE,
+    Status VARCHAR(20)
+    -- Add other doctor-specific fields as needed
+);
