@@ -20,7 +20,7 @@ Partial Class PatientView
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.New_DatabaseDataSet = New Project.New_DatabaseDataSet()
@@ -28,8 +28,6 @@ Partial Class PatientView
         Me.CollabTableAdapter = New Project.New_DatabaseDataSetTableAdapters.collabTableAdapter()
         Me.TableAdapterManager = New Project.New_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.CollabDataGridView = New System.Windows.Forms.DataGridView()
-        Me.TextBoxSearch = New System.Windows.Forms.TextBox()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,6 +47,9 @@ Partial Class PatientView
         Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TextBoxSearch = New System.Windows.Forms.TextBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CollabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CollabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,23 +85,6 @@ Partial Class PatientView
         Me.CollabDataGridView.Name = "CollabDataGridView"
         Me.CollabDataGridView.Size = New System.Drawing.Size(776, 403)
         Me.CollabDataGridView.TabIndex = 1
-        '
-        'TextBoxSearch
-        '
-        Me.TextBoxSearch.Location = New System.Drawing.Point(653, 15)
-        Me.TextBoxSearch.Name = "TextBoxSearch"
-        Me.TextBoxSearch.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxSearch.TabIndex = 3
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(759, 19)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(29, 13)
-        Me.LinkLabel1.TabIndex = 4
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Help"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -216,11 +200,36 @@ Partial Class PatientView
         Me.DataGridViewTextBoxColumn29.HeaderText = "Status"
         Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
         '
+        'TextBoxSearch
+        '
+        Me.TextBoxSearch.Location = New System.Drawing.Point(653, 15)
+        Me.TextBoxSearch.Name = "TextBoxSearch"
+        Me.TextBoxSearch.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxSearch.TabIndex = 3
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(759, 19)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(29, 13)
+        Me.LinkLabel1.TabIndex = 4
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Help"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(252, 16)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 5
+        '
         'PatientView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 456)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.TextBoxSearch)
         Me.Controls.Add(Me.CollabDataGridView)
@@ -261,4 +270,5 @@ Partial Class PatientView
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
+    Friend WithEvents TextBox1 As TextBox
 End Class

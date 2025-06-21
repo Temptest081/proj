@@ -20,7 +20,7 @@ Partial Class SigninForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.labelTitle = New System.Windows.Forms.Label()
         Me.labelSubtitle = New System.Windows.Forms.Label()
@@ -31,6 +31,7 @@ Partial Class SigninForm
         Me.buttonSignin = New System.Windows.Forms.Button()
         Me.labelMessage = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'labelTitle
@@ -132,12 +133,22 @@ Partial Class SigninForm
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Patient"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(471, 171)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'SigninForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 30.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(584, 465)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.labelMessage)
         Me.Controls.Add(Me.buttonSignin)
@@ -169,4 +180,5 @@ Partial Class SigninForm
     Friend WithEvents buttonSignin As Button
     Friend WithEvents labelMessage As Label
     Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents Button1 As Button
 End Class
