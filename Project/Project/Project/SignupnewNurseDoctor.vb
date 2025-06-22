@@ -7,21 +7,36 @@ Public Class SignupnewNurseDoctor
         ComboBoxRole.Items.Add("nurse")
         ComboBoxRole.Items.Add("doctor")
         ComboBoxRole.SelectedIndex = 0
+        UpdateDepartmentVisibility()
     End Sub
 
     Private Sub ComboBoxRole_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxRole.SelectedIndexChanged
         Dim isDoctor As Boolean = ComboBoxRole.SelectedItem.ToString().ToLower() = "doctor"
         TextBoxAdminKey.Visible = isDoctor
         LabelAdminKey.Visible = isDoctor
+        UpdateDepartmentVisibility()
+    End Sub
+
+    Private Sub UpdateDepartmentVisibility()
+        ' Nurses need department, doctors doesn't
+        Dim isNurse As Boolean = ComboBoxRole.SelectedItem.ToString().ToLower() = "nurse"
+        LabelDepartment.Visible = isNurse
+        TextBoxDepartment.Visible = isNurse
     End Sub
 
     Private Sub ButtonCreate_Click(sender As Object, e As EventArgs) Handles ButtonCreate.Click
         Dim idNumber = TextBoxID.Text.Trim()
         Dim password = TextBoxPass.Text.Trim()
         Dim role = ComboBoxRole.Text.ToLower()
+        Dim department = TextBoxDepartment.Text.Trim()
 
-        If idNumber = "" Or password = "" Then
+        If idNumber = "" OrElse password = "" Then
             MessageBox.Show("Please fill in all required fields.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If role = "nurse" AndAlso department = "" Then
+            MessageBox.Show("Please enter a department for the nurse.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -40,24 +55,41 @@ Public Class SignupnewNurseDoctor
             End If
         End If
 
-        ' Insert new user with hashed password
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("INSERT INTO users (IdNumber, Password, Role) VALUES (@id, @pass, @role)", conn)
-            cmd.Parameters.AddWithValue("@id", idNumber)
-            Dim hashedPassword As String = PasswordHelper.HashPassword(password)
-            cmd.Parameters.AddWithValue("@pass", hashedPassword)
-            cmd.Parameters.AddWithValue("@role", role)
-
             conn.Open()
+            Dim trans As SqlTransaction = conn.BeginTransaction()
+
             Try
-                cmd.ExecuteNonQuery()
+                ' Insert new user and get new Id
+                Dim userCmd As New SqlCommand("INSERT INTO users (IdNumber, Password, Role) OUTPUT INSERTED.Id VALUES (@id, @pass, @role)", conn, trans)
+                userCmd.Parameters.AddWithValue("@id", idNumber)
+                Dim hashedPassword As String = PasswordHelper.HashPassword(password)
+                userCmd.Parameters.AddWithValue("@pass", hashedPassword)
+                userCmd.Parameters.AddWithValue("@role", role)
+                Dim newUserId As Integer = CInt(userCmd.ExecuteScalar())
+
+                ' Insert into nurse or doctor profile table
+                If role = "nurse" Then
+                    Dim nurseCmd As New SqlCommand("INSERT INTO nurses (UserId, Department) VALUES (@userid, @dept)", conn, trans)
+                    nurseCmd.Parameters.AddWithValue("@userid", newUserId)
+                    nurseCmd.Parameters.AddWithValue("@dept", department)
+                    nurseCmd.ExecuteNonQuery()
+                ElseIf role = "doctor" Then
+                    Dim doctorCmd As New SqlCommand("INSERT INTO doctors (UserId) VALUES (@userid)", conn, trans)
+                    doctorCmd.Parameters.AddWithValue("@userid", newUserId)
+                    doctorCmd.ExecuteNonQuery()
+                End If
+
+                trans.Commit()
                 MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 ' Clear inputs
                 TextBoxID.Text = ""
                 TextBoxPass.Text = ""
                 TextBoxAdminKey.Text = ""
+                TextBoxDepartment.Text = ""
             Catch ex As SqlException
+                trans.Rollback()
                 MessageBox.Show("Error creating account: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End Using

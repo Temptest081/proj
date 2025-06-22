@@ -58,6 +58,8 @@ Partial Class InformationForm
         Me.MedicalSchoolTextBox = New System.Windows.Forms.TextBox()
         Me.DateJoinedDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.StatusTextBox = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         DoctorIdLabel = New System.Windows.Forms.Label()
         UserIdLabel = New System.Windows.Forms.Label()
         DateOfBirthLabel = New System.Windows.Forms.Label()
@@ -75,7 +77,143 @@ Partial Class InformationForm
         StatusLabel = New System.Windows.Forms.Label()
         CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DoctorsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DoctorIdLabel
+        '
+        DoctorIdLabel.AutoSize = True
+        DoctorIdLabel.Location = New System.Drawing.Point(12, 9)
+        DoctorIdLabel.Name = "DoctorIdLabel"
+        DoctorIdLabel.Size = New System.Drawing.Size(54, 13)
+        DoctorIdLabel.TabIndex = 30
+        DoctorIdLabel.Text = "Doctor Id:"
+        '
+        'UserIdLabel
+        '
+        UserIdLabel.AutoSize = True
+        UserIdLabel.Location = New System.Drawing.Point(192, 9)
+        UserIdLabel.Name = "UserIdLabel"
+        UserIdLabel.Size = New System.Drawing.Size(44, 13)
+        UserIdLabel.TabIndex = 31
+        UserIdLabel.Text = "User Id:"
+        '
+        'DateOfBirthLabel
+        '
+        DateOfBirthLabel.AutoSize = True
+        DateOfBirthLabel.Location = New System.Drawing.Point(12, 173)
+        DateOfBirthLabel.Name = "DateOfBirthLabel"
+        DateOfBirthLabel.Size = New System.Drawing.Size(71, 13)
+        DateOfBirthLabel.TabIndex = 32
+        DateOfBirthLabel.Text = "Date Of Birth:"
+        '
+        'FirstNameLabel
+        '
+        FirstNameLabel.AutoSize = True
+        FirstNameLabel.Location = New System.Drawing.Point(12, 39)
+        FirstNameLabel.Name = "FirstNameLabel"
+        FirstNameLabel.Size = New System.Drawing.Size(60, 13)
+        FirstNameLabel.TabIndex = 33
+        FirstNameLabel.Text = "First Name:"
+        '
+        'LastNameLabel
+        '
+        LastNameLabel.AutoSize = True
+        LastNameLabel.Location = New System.Drawing.Point(192, 39)
+        LastNameLabel.Name = "LastNameLabel"
+        LastNameLabel.Size = New System.Drawing.Size(61, 13)
+        LastNameLabel.TabIndex = 34
+        LastNameLabel.Text = "Last Name:"
+        '
+        'GenderLabel
+        '
+        GenderLabel.AutoSize = True
+        GenderLabel.Location = New System.Drawing.Point(367, 9)
+        GenderLabel.Name = "GenderLabel"
+        GenderLabel.Size = New System.Drawing.Size(45, 13)
+        GenderLabel.TabIndex = 35
+        GenderLabel.Text = "Gender:"
+        '
+        'ContactNumberLabel
+        '
+        ContactNumberLabel.AutoSize = True
+        ContactNumberLabel.Location = New System.Drawing.Point(12, 72)
+        ContactNumberLabel.Name = "ContactNumberLabel"
+        ContactNumberLabel.Size = New System.Drawing.Size(87, 13)
+        ContactNumberLabel.TabIndex = 36
+        ContactNumberLabel.Text = "Contact Number:"
+        '
+        'SpecialtyLabel
+        '
+        SpecialtyLabel.AutoSize = True
+        SpecialtyLabel.Location = New System.Drawing.Point(220, 72)
+        SpecialtyLabel.Name = "SpecialtyLabel"
+        SpecialtyLabel.Size = New System.Drawing.Size(53, 13)
+        SpecialtyLabel.TabIndex = 37
+        SpecialtyLabel.Text = "Specialty:"
+        '
+        'QualificationsLabel
+        '
+        QualificationsLabel.AutoSize = True
+        QualificationsLabel.Location = New System.Drawing.Point(375, 39)
+        QualificationsLabel.Name = "QualificationsLabel"
+        QualificationsLabel.Size = New System.Drawing.Size(73, 13)
+        QualificationsLabel.TabIndex = 38
+        QualificationsLabel.Text = "Qualifications:"
+        '
+        'YearsExperienceLabel
+        '
+        YearsExperienceLabel.AutoSize = True
+        YearsExperienceLabel.Location = New System.Drawing.Point(12, 106)
+        YearsExperienceLabel.Name = "YearsExperienceLabel"
+        YearsExperienceLabel.Size = New System.Drawing.Size(93, 13)
+        YearsExperienceLabel.TabIndex = 39
+        YearsExperienceLabel.Text = "Years Experience:"
+        '
+        'DepartmentLabel
+        '
+        DepartmentLabel.AutoSize = True
+        DepartmentLabel.Location = New System.Drawing.Point(220, 106)
+        DepartmentLabel.Name = "DepartmentLabel"
+        DepartmentLabel.Size = New System.Drawing.Size(65, 13)
+        DepartmentLabel.TabIndex = 40
+        DepartmentLabel.Text = "Department:"
+        '
+        'LicenseNumberLabel
+        '
+        LicenseNumberLabel.AutoSize = True
+        LicenseNumberLabel.Location = New System.Drawing.Point(385, 72)
+        LicenseNumberLabel.Name = "LicenseNumberLabel"
+        LicenseNumberLabel.Size = New System.Drawing.Size(87, 13)
+        LicenseNumberLabel.TabIndex = 41
+        LicenseNumberLabel.Text = "License Number:"
+        '
+        'MedicalSchoolLabel
+        '
+        MedicalSchoolLabel.AutoSize = True
+        MedicalSchoolLabel.Location = New System.Drawing.Point(12, 137)
+        MedicalSchoolLabel.Name = "MedicalSchoolLabel"
+        MedicalSchoolLabel.Size = New System.Drawing.Size(83, 13)
+        MedicalSchoolLabel.TabIndex = 42
+        MedicalSchoolLabel.Text = "Medical School:"
+        '
+        'DateJoinedLabel
+        '
+        DateJoinedLabel.AutoSize = True
+        DateJoinedLabel.Location = New System.Drawing.Point(334, 173)
+        DateJoinedLabel.Name = "DateJoinedLabel"
+        DateJoinedLabel.Size = New System.Drawing.Size(67, 13)
+        DateJoinedLabel.TabIndex = 43
+        DateJoinedLabel.Text = "Date Joined:"
+        '
+        'StatusLabel
+        '
+        StatusLabel.AutoSize = True
+        StatusLabel.Location = New System.Drawing.Point(397, 106)
+        StatusLabel.Name = "StatusLabel"
+        StatusLabel.Size = New System.Drawing.Size(40, 13)
+        StatusLabel.TabIndex = 44
+        StatusLabel.Text = "Status:"
         '
         'New_DatabaseDataSet
         '
@@ -101,21 +239,12 @@ Partial Class InformationForm
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(729, 414)
+        Me.btnSave.Location = New System.Drawing.Point(612, 167)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(60, 24)
         Me.btnSave.TabIndex = 30
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'DoctorIdLabel
-        '
-        DoctorIdLabel.AutoSize = True
-        DoctorIdLabel.Location = New System.Drawing.Point(12, 9)
-        DoctorIdLabel.Name = "DoctorIdLabel"
-        DoctorIdLabel.Size = New System.Drawing.Size(54, 13)
-        DoctorIdLabel.TabIndex = 30
-        DoctorIdLabel.Text = "Doctor Id:"
         '
         'DoctorIdTextBox
         '
@@ -125,15 +254,6 @@ Partial Class InformationForm
         Me.DoctorIdTextBox.Size = New System.Drawing.Size(100, 20)
         Me.DoctorIdTextBox.TabIndex = 31
         '
-        'UserIdLabel
-        '
-        UserIdLabel.AutoSize = True
-        UserIdLabel.Location = New System.Drawing.Point(192, 9)
-        UserIdLabel.Name = "UserIdLabel"
-        UserIdLabel.Size = New System.Drawing.Size(44, 13)
-        UserIdLabel.TabIndex = 31
-        UserIdLabel.Text = "User Id:"
-        '
         'UserIdTextBox
         '
         Me.UserIdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "UserId", True))
@@ -142,31 +262,13 @@ Partial Class InformationForm
         Me.UserIdTextBox.Size = New System.Drawing.Size(100, 20)
         Me.UserIdTextBox.TabIndex = 32
         '
-        'DateOfBirthLabel
-        '
-        DateOfBirthLabel.AutoSize = True
-        DateOfBirthLabel.Location = New System.Drawing.Point(362, 9)
-        DateOfBirthLabel.Name = "DateOfBirthLabel"
-        DateOfBirthLabel.Size = New System.Drawing.Size(71, 13)
-        DateOfBirthLabel.TabIndex = 32
-        DateOfBirthLabel.Text = "Date Of Birth:"
-        '
         'DateOfBirthDateTimePicker
         '
         Me.DateOfBirthDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.DoctorsBindingSource, "DateOfBirth", True))
-        Me.DateOfBirthDateTimePicker.Location = New System.Drawing.Point(439, 5)
+        Me.DateOfBirthDateTimePicker.Location = New System.Drawing.Point(89, 169)
         Me.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker"
         Me.DateOfBirthDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.DateOfBirthDateTimePicker.TabIndex = 33
-        '
-        'FirstNameLabel
-        '
-        FirstNameLabel.AutoSize = True
-        FirstNameLabel.Location = New System.Drawing.Point(12, 39)
-        FirstNameLabel.Name = "FirstNameLabel"
-        FirstNameLabel.Size = New System.Drawing.Size(60, 13)
-        FirstNameLabel.TabIndex = 33
-        FirstNameLabel.Text = "First Name:"
         '
         'FirstNameTextBox
         '
@@ -176,15 +278,6 @@ Partial Class InformationForm
         Me.FirstNameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.FirstNameTextBox.TabIndex = 34
         '
-        'LastNameLabel
-        '
-        LastNameLabel.AutoSize = True
-        LastNameLabel.Location = New System.Drawing.Point(192, 39)
-        LastNameLabel.Name = "LastNameLabel"
-        LastNameLabel.Size = New System.Drawing.Size(61, 13)
-        LastNameLabel.TabIndex = 34
-        LastNameLabel.Text = "Last Name:"
-        '
         'LastNameTextBox
         '
         Me.LastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "LastName", True))
@@ -193,32 +286,14 @@ Partial Class InformationForm
         Me.LastNameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.LastNameTextBox.TabIndex = 35
         '
-        'GenderLabel
-        '
-        GenderLabel.AutoSize = True
-        GenderLabel.Location = New System.Drawing.Point(365, 39)
-        GenderLabel.Name = "GenderLabel"
-        GenderLabel.Size = New System.Drawing.Size(45, 13)
-        GenderLabel.TabIndex = 35
-        GenderLabel.Text = "Gender:"
-        '
         'GenderComboBox
         '
         Me.GenderComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "Gender", True))
         Me.GenderComboBox.FormattingEnabled = True
-        Me.GenderComboBox.Location = New System.Drawing.Point(416, 36)
+        Me.GenderComboBox.Location = New System.Drawing.Point(418, 6)
         Me.GenderComboBox.Name = "GenderComboBox"
         Me.GenderComboBox.Size = New System.Drawing.Size(121, 21)
         Me.GenderComboBox.TabIndex = 36
-        '
-        'ContactNumberLabel
-        '
-        ContactNumberLabel.AutoSize = True
-        ContactNumberLabel.Location = New System.Drawing.Point(12, 72)
-        ContactNumberLabel.Name = "ContactNumberLabel"
-        ContactNumberLabel.Size = New System.Drawing.Size(87, 13)
-        ContactNumberLabel.TabIndex = 36
-        ContactNumberLabel.Text = "Contact Number:"
         '
         'ContactNumberTextBox
         '
@@ -228,15 +303,6 @@ Partial Class InformationForm
         Me.ContactNumberTextBox.Size = New System.Drawing.Size(100, 20)
         Me.ContactNumberTextBox.TabIndex = 37
         '
-        'SpecialtyLabel
-        '
-        SpecialtyLabel.AutoSize = True
-        SpecialtyLabel.Location = New System.Drawing.Point(220, 72)
-        SpecialtyLabel.Name = "SpecialtyLabel"
-        SpecialtyLabel.Size = New System.Drawing.Size(53, 13)
-        SpecialtyLabel.TabIndex = 37
-        SpecialtyLabel.Text = "Specialty:"
-        '
         'SpecialtyTextBox
         '
         Me.SpecialtyTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "Specialty", True))
@@ -245,31 +311,13 @@ Partial Class InformationForm
         Me.SpecialtyTextBox.Size = New System.Drawing.Size(100, 20)
         Me.SpecialtyTextBox.TabIndex = 38
         '
-        'QualificationsLabel
-        '
-        QualificationsLabel.AutoSize = True
-        QualificationsLabel.Location = New System.Drawing.Point(395, 72)
-        QualificationsLabel.Name = "QualificationsLabel"
-        QualificationsLabel.Size = New System.Drawing.Size(73, 13)
-        QualificationsLabel.TabIndex = 38
-        QualificationsLabel.Text = "Qualifications:"
-        '
         'QualificationsTextBox
         '
         Me.QualificationsTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "Qualifications", True))
-        Me.QualificationsTextBox.Location = New System.Drawing.Point(474, 69)
+        Me.QualificationsTextBox.Location = New System.Drawing.Point(454, 36)
         Me.QualificationsTextBox.Name = "QualificationsTextBox"
         Me.QualificationsTextBox.Size = New System.Drawing.Size(100, 20)
         Me.QualificationsTextBox.TabIndex = 39
-        '
-        'YearsExperienceLabel
-        '
-        YearsExperienceLabel.AutoSize = True
-        YearsExperienceLabel.Location = New System.Drawing.Point(12, 106)
-        YearsExperienceLabel.Name = "YearsExperienceLabel"
-        YearsExperienceLabel.Size = New System.Drawing.Size(93, 13)
-        YearsExperienceLabel.TabIndex = 39
-        YearsExperienceLabel.Text = "Years Experience:"
         '
         'YearsExperienceTextBox
         '
@@ -279,15 +327,6 @@ Partial Class InformationForm
         Me.YearsExperienceTextBox.Size = New System.Drawing.Size(100, 20)
         Me.YearsExperienceTextBox.TabIndex = 40
         '
-        'DepartmentLabel
-        '
-        DepartmentLabel.AutoSize = True
-        DepartmentLabel.Location = New System.Drawing.Point(220, 106)
-        DepartmentLabel.Name = "DepartmentLabel"
-        DepartmentLabel.Size = New System.Drawing.Size(65, 13)
-        DepartmentLabel.TabIndex = 40
-        DepartmentLabel.Text = "Department:"
-        '
         'DepartmentTextBox
         '
         Me.DepartmentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "Department", True))
@@ -296,31 +335,13 @@ Partial Class InformationForm
         Me.DepartmentTextBox.Size = New System.Drawing.Size(100, 20)
         Me.DepartmentTextBox.TabIndex = 41
         '
-        'LicenseNumberLabel
-        '
-        LicenseNumberLabel.AutoSize = True
-        LicenseNumberLabel.Location = New System.Drawing.Point(413, 106)
-        LicenseNumberLabel.Name = "LicenseNumberLabel"
-        LicenseNumberLabel.Size = New System.Drawing.Size(87, 13)
-        LicenseNumberLabel.TabIndex = 41
-        LicenseNumberLabel.Text = "License Number:"
-        '
         'LicenseNumberTextBox
         '
         Me.LicenseNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "LicenseNumber", True))
-        Me.LicenseNumberTextBox.Location = New System.Drawing.Point(506, 103)
+        Me.LicenseNumberTextBox.Location = New System.Drawing.Point(478, 69)
         Me.LicenseNumberTextBox.Name = "LicenseNumberTextBox"
         Me.LicenseNumberTextBox.Size = New System.Drawing.Size(100, 20)
         Me.LicenseNumberTextBox.TabIndex = 42
-        '
-        'MedicalSchoolLabel
-        '
-        MedicalSchoolLabel.AutoSize = True
-        MedicalSchoolLabel.Location = New System.Drawing.Point(12, 137)
-        MedicalSchoolLabel.Name = "MedicalSchoolLabel"
-        MedicalSchoolLabel.Size = New System.Drawing.Size(83, 13)
-        MedicalSchoolLabel.TabIndex = 42
-        MedicalSchoolLabel.Text = "Medical School:"
         '
         'MedicalSchoolTextBox
         '
@@ -330,45 +351,46 @@ Partial Class InformationForm
         Me.MedicalSchoolTextBox.Size = New System.Drawing.Size(505, 20)
         Me.MedicalSchoolTextBox.TabIndex = 43
         '
-        'DateJoinedLabel
-        '
-        DateJoinedLabel.AutoSize = True
-        DateJoinedLabel.Location = New System.Drawing.Point(12, 170)
-        DateJoinedLabel.Name = "DateJoinedLabel"
-        DateJoinedLabel.Size = New System.Drawing.Size(67, 13)
-        DateJoinedLabel.TabIndex = 43
-        DateJoinedLabel.Text = "Date Joined:"
-        '
         'DateJoinedDateTimePicker
         '
         Me.DateJoinedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.DoctorsBindingSource, "DateJoined", True))
-        Me.DateJoinedDateTimePicker.Location = New System.Drawing.Point(85, 166)
+        Me.DateJoinedDateTimePicker.Location = New System.Drawing.Point(407, 169)
         Me.DateJoinedDateTimePicker.Name = "DateJoinedDateTimePicker"
         Me.DateJoinedDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.DateJoinedDateTimePicker.TabIndex = 44
         '
-        'StatusLabel
-        '
-        StatusLabel.AutoSize = True
-        StatusLabel.Location = New System.Drawing.Point(302, 170)
-        StatusLabel.Name = "StatusLabel"
-        StatusLabel.Size = New System.Drawing.Size(40, 13)
-        StatusLabel.TabIndex = 44
-        StatusLabel.Text = "Status:"
-        '
         'StatusTextBox
         '
         Me.StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DoctorsBindingSource, "Status", True))
-        Me.StatusTextBox.Location = New System.Drawing.Point(348, 167)
+        Me.StatusTextBox.Location = New System.Drawing.Point(443, 103)
         Me.StatusTextBox.Name = "StatusTextBox"
         Me.StatusTextBox.Size = New System.Drawing.Size(100, 20)
         Me.StatusTextBox.TabIndex = 45
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(709, 167)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 24)
+        Me.Button1.TabIndex = 46
+        Me.Button1.Text = "Close"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(612, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(157, 117)
+        Me.PictureBox1.TabIndex = 47
+        Me.PictureBox1.TabStop = False
         '
         'InformationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(809, 458)
+        Me.ClientSize = New System.Drawing.Size(781, 205)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(StatusLabel)
         Me.Controls.Add(Me.StatusTextBox)
         Me.Controls.Add(DateJoinedLabel)
@@ -404,6 +426,7 @@ Partial Class InformationForm
         Me.Text = "InformationForm"
         CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DoctorsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -429,4 +452,6 @@ Partial Class InformationForm
     Friend WithEvents MedicalSchoolTextBox As TextBox
     Friend WithEvents DateJoinedDateTimePicker As DateTimePicker
     Friend WithEvents StatusTextBox As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

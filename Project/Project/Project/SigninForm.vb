@@ -23,30 +23,60 @@ Public Class SigninForm
 
         Dim connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
         Using conn As New SqlConnection(connStr)
-            ' Get the hashed password and role for the user
-            Dim cmd As New SqlCommand("SELECT Password, Role FROM users WHERE IdNumber = @id", conn)
+            ' Get the hashed password, role, and user PK (Id) for the user
+            Dim cmd As New SqlCommand("SELECT Id, IdNumber, Password, Role FROM users WHERE IdNumber = @id", conn)
             cmd.Parameters.AddWithValue("@id", idNumber)
 
             conn.Open()
             Dim reader = cmd.ExecuteReader()
 
             If reader.Read() Then
-                Dim storedHash = reader.GetString(0)
-                role = reader.GetString(1).ToLower()
+                Dim userId As Integer = reader.GetInt32(0)
+                Dim userIdNumber As String = reader.GetString(1)
+                Dim storedHash = reader.GetString(2)
+                role = reader.GetString(3).ToLower()
 
                 ' Check hashed password
                 If PasswordHelper.VerifyPassword(password, storedHash) Then
                     Select Case role
                         Case "doctor"
-                            Dim docForm As New DoctorForm()
-                            docForm.CurrentUserRole = "Doctor"
-                            docForm.CurrentUserId = idNumber
-                            docForm.Show()
-                            Me.Hide()
+                            reader.Close()
+                            ' Find the doctor record by UserId (not by idnumber)
+                            Dim doctorCmd As New SqlCommand("SELECT DoctorId FROM doctors WHERE UserId = @userid", conn)
+                            doctorCmd.Parameters.AddWithValue("@userid", userId)
+                            Dim doctorIdObj = doctorCmd.ExecuteScalar()
+                            If doctorIdObj IsNot Nothing Then
+                                Dim docForm As New DoctorForm()
+                                docForm.CurrentUsername = idNumber
+                                docForm.CurrentDoctorId = Convert.ToInt32(doctorIdObj)
+                                ' >>> ADD THESE LINES <<<
+                                docForm.CurrentUserRole = role
+                                docForm.CurrentUserId = userId
+                                ' <<<<<<<<<<<<<<<<<<<<<<<
+                                docForm.Show()
+                                Me.Hide()
+                            Else
+                                labelMessage.Text = "No doctor profile linked to this user."
+                            End If
                         Case "nurse"
-                            Dim nurseForm As New NurseForm()
-                            nurseForm.Show()
-                            Me.Hide()
+                            reader.Close()
+                            ' Find the nurse record by UserId (not by idnumber)
+                            Dim nurseCmd As New SqlCommand("SELECT NurseId FROM nurses WHERE UserId = @userid", conn)
+                            nurseCmd.Parameters.AddWithValue("@userid", userId)
+                            Dim nurseIdObj = nurseCmd.ExecuteScalar()
+                            If nurseIdObj IsNot Nothing Then
+                                Dim nurseForm As New txtRelationship()
+                                nurseForm.CurrentUsername = idNumber
+                                nurseForm.CurrentNurseId = Convert.ToInt32(nurseIdObj)
+                                ' >>> ADD THESE LINES <<<
+                                nurseForm.CurrentUserRole = role
+                                nurseForm.CurrentUserId = userId
+                                ' <<<<<<<<<<<<<<<<<<<<<<<
+                                nurseForm.Show()
+                                Me.Hide()
+                            Else
+                                labelMessage.Text = "No nurse profile linked to this user."
+                            End If
                         Case Else
                             labelMessage.Text = "Only doctor or nurse logins are allowed here."
                     End Select
@@ -63,7 +93,6 @@ Public Class SigninForm
         textPassword.Text = ""
     End Sub
 
-
     Private Sub ButtonSignin_MouseEnter(sender As Object, e As EventArgs) Handles buttonSignin.MouseEnter
         ' Change button background color to a dark gray when the mouse enters
         buttonSignin.BackColor = Color.FromArgb(30, 30, 30)
@@ -78,4 +107,5 @@ Public Class SigninForm
         Dim patientForm As New PatientForm()
         PatientView.ShowDialog()
     End Sub
+
 End Class

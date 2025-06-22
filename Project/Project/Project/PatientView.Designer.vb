@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class PatientView
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -49,7 +49,6 @@ Partial Class PatientView
         Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CollabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CollabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,7 +72,9 @@ Partial Class PatientView
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.collabTableAdapter = Me.CollabTableAdapter
+        Me.TableAdapterManager.doctorsTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Project.New_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usersTableAdapter = Nothing
         '
         'CollabDataGridView
         '
@@ -217,19 +218,12 @@ Partial Class PatientView
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Help"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(252, 16)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 5
-        '
         'PatientView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 456)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.TextBoxSearch)
         Me.Controls.Add(Me.CollabDataGridView)
@@ -270,5 +264,4 @@ Partial Class PatientView
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
 End Class

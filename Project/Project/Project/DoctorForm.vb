@@ -1,57 +1,87 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class DoctorForm
+    Private connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
 
-    Dim connStr As String = "Data Source=(localdb)\ProjectModels;Initial Catalog=New Database;Integrated Security=True;Encrypt=False;TrustServerCertificate=True"
-
-    ' User info properties
-    Public Property CurrentUserName As String
-    Public Property CurrentUserId As String
+    ' Properties set from SigninForm
+    Public Property CurrentUsername As String
+    Public Property CurrentDoctorId As Integer
     Public Property CurrentUserRole As String
+    Public Property CurrentUserId As Integer
 
     Private Sub DoctorForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        labelUserName.Text = $"Role: {CurrentUserRole}"
-        labelUserId.Text = $"ID: {CurrentUserId}"
+        ' Show user role and user id
+        labelUserName.Text = CurrentUserRole
+        labelUserId.Text = CurrentUserId.ToString()
+
+        SetCurrentDoctorIdByUsername(CurrentUsername)
         LoadPatientList()
+    End Sub
+
+    Private Sub SetCurrentDoctorIdByUsername(idNumber As String)
+        Using conn As New SqlConnection(connStr)
+            Dim cmd As New SqlCommand("
+                SELECT d.DoctorId
+                FROM doctors d
+                INNER JOIN users u ON d.UserId = u.Id
+                WHERE u.IdNumber = @idNumber", conn)
+            cmd.Parameters.AddWithValue("@idNumber", idNumber)
+            conn.Open()
+            Dim result = cmd.ExecuteScalar()
+            If result IsNot Nothing Then
+                CurrentDoctorId = Convert.ToInt32(result)
+            Else
+                MessageBox.Show("Doctor not found for this user ID number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
+            End If
+        End Using
     End Sub
 
     Private Sub LoadPatientList()
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("SELECT Id, Name FROM collab", conn)
+            Dim cmd As New SqlCommand("SELECT id, Name FROM collab", conn)
             Dim dt As New DataTable()
             conn.Open()
             dt.Load(cmd.ExecuteReader())
-            patientList.DisplayMember = "Name"
-            patientList.ValueMember = "Id"
             patientList.DataSource = dt
-            AddHandler patientList.SelectedIndexChanged, AddressOf PatientList_SelectedIndexChanged
+            patientList.DisplayMember = "Name"
+            patientList.ValueMember = "id"
         End Using
     End Sub
 
-    Private Sub PatientList_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If TypeOf patientList.SelectedValue Is Integer Then
-            Dim selectedId As Integer = CInt(patientList.SelectedValue)
-            LoadPatientDetails(selectedId)
+    Private Sub patientList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles patientList.SelectedIndexChanged
+        If patientList.SelectedValue Is Nothing OrElse Not TypeOf patientList.SelectedValue Is Integer Then
+            patientDetailsText.Text = "No patient selected."
+            Return
         End If
-    End Sub
 
-    Private Sub LoadPatientDetails(patientId As Integer)
+        Dim patientId As Integer = CInt(patientList.SelectedValue)
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("SELECT * FROM collab WHERE Id = @Id", conn)
-            cmd.Parameters.AddWithValue("@Id", patientId)
+            ' Use collab instead of patients
+            Dim cmd As New SqlCommand("SELECT * FROM collab WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", patientId)
             conn.Open()
             Using reader As SqlDataReader = cmd.ExecuteReader()
                 If reader.Read() Then
-                    Dim name As String = reader("Name").ToString()
-                    Dim gender As String = reader("Gender").ToString()
-                    Dim dob As String = If(IsDBNull(reader("DateofBirth")), "", Convert.ToDateTime(reader("DateofBirth")).ToShortDateString())
-                    Dim age As Integer = If(dob <> "", DateDiff(DateInterval.Year, Convert.ToDateTime(dob), Date.Now), 0)
-                    Dim symptoms As String = reader("Symptoms").ToString()
-                    Dim allergies As String = reader("Allergies").ToString()
-                    Dim heartRate As String = reader("heartbeat").ToString()
-                    Dim temp As String = reader("Temp").ToString()
-                    Dim systolic As String = reader("Systolic").ToString()
-                    Dim diastolic As String = reader("Diastolic").ToString()
+                    ' Safely read columns, handle DBNull
+                    Dim name As String = If(reader("Name") IsNot DBNull.Value, reader("Name").ToString(), "")
+                    Dim gender As String = If(reader("Gender") IsNot DBNull.Value, reader("Gender").ToString(), "")
+                    Dim dob As String = If(reader("DateofBirth") IsNot DBNull.Value, Convert.ToDateTime(reader("DateofBirth")).ToShortDateString(), "")
+                    Dim symptoms As String = If(reader("Symptoms") IsNot DBNull.Value, reader("Symptoms").ToString(), "")
+                    Dim allergies As String = If(reader("Allergies") IsNot DBNull.Value, reader("Allergies").ToString(), "")
+                    Dim systolic As String = If(reader("Systolic") IsNot DBNull.Value, reader("Systolic").ToString(), "")
+                    Dim diastolic As String = If(reader("Diastolic") IsNot DBNull.Value, reader("Diastolic").ToString(), "")
+                    Dim heartRate As String = If(reader("heartbeat") IsNot DBNull.Value, reader("heartbeat").ToString(), "")
+                    Dim temp As String = If(reader("Temp") IsNot DBNull.Value, reader("Temp").ToString(), "")
+
+                    ' Calculate age if dob is available
+                    Dim age As String = ""
+                    If Not String.IsNullOrWhiteSpace(dob) Then
+                        Dim birthdate As Date
+                        If Date.TryParse(dob, birthdate) Then
+                            age = (Date.Now.Year - birthdate.Year).ToString()
+                        End If
+                    End If
 
                     patientDetailsText.Text =
                         $"Name: {name}{Environment.NewLine}" &
@@ -67,7 +97,7 @@ Public Class DoctorForm
                     TextBoxPrescribe.Text = $"Name: {name}{Environment.NewLine}Prescription: "
                     TextBoxPrescribe.SelectionStart = TextBoxPrescribe.Text.Length
 
-                    If Not IsDBNull(reader("AppointmentDate")) Then
+                    If Not IsDBNull(reader("AppointmentDate")) AndAlso reader("AppointmentDate") IsNot DBNull.Value Then
                         Dim apptDate As Date = Convert.ToDateTime(reader("AppointmentDate"))
                         MonthCalendar1.SetDate(apptDate)
                     Else
@@ -102,7 +132,7 @@ Public Class DoctorForm
         Dim appointmentDate As Date = MonthCalendar1.SelectionStart
 
         Using conn As New SqlConnection(connStr)
-            Dim cmd As New SqlCommand("UPDATE collab SET Symptoms = @symptoms, AppointmentDate = @appt WHERE Id = @id", conn)
+            Dim cmd As New SqlCommand("UPDATE collab SET Symptoms = @symptoms, AppointmentDate = @appt WHERE id = @id", conn)
             cmd.Parameters.AddWithValue("@symptoms", prescription)
             cmd.Parameters.AddWithValue("@appt", appointmentDate)
             cmd.Parameters.AddWithValue("@id", patientId)
@@ -116,21 +146,14 @@ Public Class DoctorForm
         End Using
     End Sub
 
+    ' Show InformationForm as a dialog instead of in a panel
     Private Sub InfoTab_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles InfoTab.LinkClicked
-        ' Only clear and change Panel2, leave the rest of the dashboard untouched
-        Panel2.Controls.Clear()
         Dim infoForm As New InformationForm()
-        infoForm.TopLevel = False
+        infoForm.CurrentDoctorId = Me.CurrentDoctorId
         infoForm.FormBorderStyle = FormBorderStyle.None
-        infoForm.Dock = DockStyle.Fill
-        Panel2.Controls.Add(infoForm)
-        infoForm.Show()
+        infoForm.StartPosition = FormStartPosition.Manual
+        infoForm.Size = Panel3.ClientSize
+        infoForm.Location = Panel3.PointToScreen(New Point(0, 0))
+        infoForm.ShowDialog()
     End Sub
-
-    ' Optional: Restore Panel2 to original controls (if you want a "back" or "dashboard" button)
-    Public Sub RestorePanel2()
-        Panel2.Controls.Clear()
-        ' Add code here to re-add your original Panel2 controls if needed
-    End Sub
-
 End Class

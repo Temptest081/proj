@@ -118,3 +118,40 @@ CREATE TABLE doctors (
     Status VARCHAR(20)
     -- Add other doctor-specific fields as needed
 );
+INSERT INTO doctors (
+    UserId,         -- Links to users.Id
+    FirstName,
+    LastName,
+    Gender,
+    DateOfBirth,
+    ContactNumber,
+    Specialty,
+    Qualifications,
+    YearsExperience,
+    Department,
+    LicenseNumber,
+    MedicalSchool
+)
+SELECT
+    Id,            -- users.Id becomes doctors.UserId
+    'First',       -- Placeholder, update as needed
+    'Last',        -- Placeholder, update as needed
+    'Unknown',     -- Gender
+    '1970-01-01',  -- DateOfBirth
+    '0000000000',  -- ContactNumber
+    'General',     -- Specialty
+    'MD',          -- Qualifications
+    0,             -- YearExperience
+    'General',     -- Department
+    'LIC000',      -- LicenseNumber
+    'MedSchool'    -- MedicalSchool
+FROM users
+WHERE Role = 'doctor'
+  AND Id NOT IN (SELECT UserId FROM doctors);
+CREATE TABLE nurses (
+    NurseId INT PRIMARY KEY IDENTITY(1,1),
+    UserId INT NOT NULL,
+    Department NVARCHAR(100),
+    -- Add other nurse fields as needed
+    FOREIGN KEY (UserId) REFERENCES users(Id)
+);

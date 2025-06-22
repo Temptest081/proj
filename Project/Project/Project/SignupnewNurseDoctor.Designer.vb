@@ -32,11 +32,13 @@ Partial Class SignupnewNurseDoctor
         Me.LabelAdminKey = New System.Windows.Forms.Label()
         Me.ComboBoxRole = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelDepartment = New System.Windows.Forms.Label()
+        Me.TextBoxDepartment = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'ButtonCreate
         '
-        Me.ButtonCreate.Location = New System.Drawing.Point(104, 199)
+        Me.ButtonCreate.Location = New System.Drawing.Point(104, 233)
         Me.ButtonCreate.Name = "ButtonCreate"
         Me.ButtonCreate.Size = New System.Drawing.Size(75, 23)
         Me.ButtonCreate.TabIndex = 0
@@ -62,7 +64,7 @@ Partial Class SignupnewNurseDoctor
         '
         'TextBoxAdminKey
         '
-        Me.TextBoxAdminKey.Location = New System.Drawing.Point(123, 173)
+        Me.TextBoxAdminKey.Location = New System.Drawing.Point(123, 197)
         Me.TextBoxAdminKey.Name = "TextBoxAdminKey"
         Me.TextBoxAdminKey.Size = New System.Drawing.Size(121, 20)
         Me.TextBoxAdminKey.TabIndex = 3
@@ -98,7 +100,7 @@ Partial Class SignupnewNurseDoctor
         'LabelAdminKey
         '
         Me.LabelAdminKey.AutoSize = True
-        Me.LabelAdminKey.Location = New System.Drawing.Point(19, 176)
+        Me.LabelAdminKey.Location = New System.Drawing.Point(19, 200)
         Me.LabelAdminKey.Name = "LabelAdminKey"
         Me.LabelAdminKey.Size = New System.Drawing.Size(88, 13)
         Me.LabelAdminKey.TabIndex = 7
@@ -122,11 +124,33 @@ Partial Class SignupnewNurseDoctor
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Role:"
         '
+        'LabelDepartment
+        '
+        Me.LabelDepartment.AutoSize = True
+        Me.LabelDepartment.Location = New System.Drawing.Point(42, 175)
+        Me.LabelDepartment.Name = "LabelDepartment"
+        Me.LabelDepartment.Size = New System.Drawing.Size(65, 13)
+        Me.LabelDepartment.TabIndex = 11
+        Me.LabelDepartment.Text = "Department:"
+        Me.LabelDepartment.Visible = False
+        '
+        'TextBoxDepartment
+        '
+        Me.TextBoxDepartment.Location = New System.Drawing.Point(123, 172)
+        Me.TextBoxDepartment.Name = "TextBoxDepartment"
+        Me.TextBoxDepartment.Size = New System.Drawing.Size(121, 20)
+        Me.TextBoxDepartment.TabIndex = 10
+        Me.TextBoxDepartment.UseSystemPasswordChar = True
+        Me.TextBoxDepartment.Visible = False
+        '
         'SignupnewNurseDoctor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(269, 242)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(269, 268)
+        Me.Controls.Add(Me.LabelDepartment)
+        Me.Controls.Add(Me.TextBoxDepartment)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ComboBoxRole)
         Me.Controls.Add(Me.LabelAdminKey)
@@ -155,4 +179,6 @@ Partial Class SignupnewNurseDoctor
     Friend WithEvents LabelAdminKey As Label
     Friend WithEvents ComboBoxRole As ComboBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents LabelDepartment As Label
+    Friend WithEvents TextBoxDepartment As TextBox
 End Class
