@@ -108,4 +108,7 @@ Public Class SigninForm
         PatientView.ShowDialog()
     End Sub
 
+    Private Sub labelUsername_Click(sender As Object, e As EventArgs) Handles labelUsername.Click
+
+    End Sub
 End Class
