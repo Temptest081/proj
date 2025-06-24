@@ -155,3 +155,61 @@ CREATE TABLE nurses (
     -- Add other nurse fields as needed
     FOREIGN KEY (UserId) REFERENCES users(Id)
 );
+-- Example for SQL Server: Add columns only if they do not already exist
+
+-- DateOfBirth
+IF COL_LENGTH('nurses', 'DateOfBirth') IS NULL
+    ALTER TABLE nurses ADD DateOfBirth DATE;
+
+-- FirstName
+IF COL_LENGTH('nurses', 'FirstName') IS NULL
+    ALTER TABLE nurses ADD FirstName NVARCHAR(50);
+
+-- LastName
+IF COL_LENGTH('nurses', 'LastName') IS NULL
+    ALTER TABLE nurses ADD LastName NVARCHAR(50);
+
+-- Gender
+IF COL_LENGTH('nurses', 'Gender') IS NULL
+    ALTER TABLE nurses ADD Gender NVARCHAR(10);
+
+-- ContactNumber
+IF COL_LENGTH('nurses', 'ContactNumber') IS NULL
+    ALTER TABLE nurses ADD ContactNumber NVARCHAR(20);
+
+-- Department
+IF COL_LENGTH('nurses', 'Department') IS NULL
+    ALTER TABLE nurses ADD Department NVARCHAR(50);
+
+-- Qualifications
+IF COL_LENGTH('nurses', 'Qualifications') IS NULL
+    ALTER TABLE nurses ADD Qualifications NVARCHAR(255);
+
+-- YearsExperience
+IF COL_LENGTH('nurses', 'YearsExperience') IS NULL
+    ALTER TABLE nurses ADD YearsExperience INT;
+
+-- LicenseNumber
+IF COL_LENGTH('nurses', 'LicenseNumber') IS NULL
+    ALTER TABLE nurses ADD LicenseNumber NVARCHAR(50);
+
+-- NursingSchool
+IF COL_LENGTH('nurses', 'NursingSchool') IS NULL
+    ALTER TABLE nurses ADD NursingSchool NVARCHAR(100);
+
+-- DateJoined
+IF COL_LENGTH('nurses', 'DateJoined') IS NULL
+    ALTER TABLE nurses ADD DateJoined DATE;
+
+-- Status
+IF COL_LENGTH('nurses', 'Status') IS NULL
+    ALTER TABLE nurses ADD Status NVARCHAR(20);
+
+-- UserId (if you need it)
+IF COL_LENGTH('nurses', 'UserId') IS NULL
+    ALTER TABLE nurses ADD UserId INT;
+
+-- NurseId (if not already primary key, but usually this exists)
+-- You can skip adding NurseId if it is already present as the PK.
+
+-- Add any additional new fields below following the same pattern.

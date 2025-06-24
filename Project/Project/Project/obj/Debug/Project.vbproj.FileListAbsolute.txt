@@ -66,3 +66,4 @@ C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.Signupnew
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.InformationForm.resources
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.txtRelationship.resources
 C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.exe.config
+C:\Users\PC\OneDrive\Desktop\Project\Project\Project\obj\Debug\Project.NurseInformationForm.resources

@@ -39,6 +39,8 @@ Partial Class txtRelationship
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.LabelBloodPressure = New System.Windows.Forms.Label()
         Me.txtSystolic = New System.Windows.Forms.TextBox()
+        Me.CollabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.New_DatabaseDataSet = New Project.New_DatabaseDataSet()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtDiastolic = New System.Windows.Forms.TextBox()
@@ -82,6 +84,7 @@ Partial Class txtRelationship
         Me.TimeTextBox = New System.Windows.Forms.TextBox()
         Me.IdTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.VapeSmokeDrinkComboBox = New System.Windows.Forms.ComboBox()
         Me.Pregnant = New System.Windows.Forms.ComboBox()
         Me.Vaccine = New System.Windows.Forms.ComboBox()
         Me.Ability = New System.Windows.Forms.ComboBox()
@@ -89,18 +92,15 @@ Partial Class txtRelationship
         Me.Symptoms = New System.Windows.Forms.ComboBox()
         Me.Surgeries = New System.Windows.Forms.ComboBox()
         Me.Medication = New System.Windows.Forms.ComboBox()
-        Me.New_DatabaseDataSet = New Project.New_DatabaseDataSet()
-        Me.CollabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CollabTableAdapter = New Project.New_DatabaseDataSetTableAdapters.collabTableAdapter()
         Me.TableAdapterManager = New Project.New_DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.VapeSmokeDrinkComboBox = New System.Windows.Forms.ComboBox()
         TimeLabel = New System.Windows.Forms.Label()
         IdLabel = New System.Windows.Forms.Label()
         Me.txtSurgeries.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CollabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TimeLabel
@@ -194,7 +194,7 @@ Partial Class txtRelationship
         '
         Me.labelUserName.AutoSize = True
         Me.labelUserName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.labelUserName.Location = New System.Drawing.Point(79, 125)
+        Me.labelUserName.Location = New System.Drawing.Point(47, 125)
         Me.labelUserName.Name = "labelUserName"
         Me.labelUserName.Size = New System.Drawing.Size(48, 21)
         Me.labelUserName.TabIndex = 101
@@ -204,17 +204,18 @@ Partial Class txtRelationship
         '
         Me.labelUserId.AutoSize = True
         Me.labelUserId.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.labelUserId.Location = New System.Drawing.Point(79, 156)
+        Me.labelUserId.Location = New System.Drawing.Point(116, 128)
         Me.labelUserId.Name = "labelUserId"
-        Me.labelUserId.Size = New System.Drawing.Size(114, 20)
+        Me.labelUserId.Size = New System.Drawing.Size(24, 20)
         Me.labelUserId.TabIndex = 102
-        Me.labelUserId.Text = "ID: [ID Number]"
+        Me.labelUserId.Text = "ID"
         '
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.SystemColors.Control
         Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Location = New System.Drawing.Point(83, 362)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(44, 33)
@@ -226,6 +227,7 @@ Partial Class txtRelationship
         Me.Button5.BackColor = System.Drawing.SystemColors.GrayText
         Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button5.ForeColor = System.Drawing.Color.Transparent
         Me.Button5.Location = New System.Drawing.Point(168, 363)
         Me.Button5.Name = "Button5"
@@ -237,6 +239,8 @@ Partial Class txtRelationship
         '
         Me.ButtonSave.BackgroundImage = CType(resources.GetObject("ButtonSave.BackgroundImage"), System.Drawing.Image)
         Me.ButtonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonSave.ForeColor = System.Drawing.Color.Transparent
         Me.ButtonSave.Location = New System.Drawing.Point(-1, 363)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Size = New System.Drawing.Size(44, 33)
@@ -255,10 +259,21 @@ Partial Class txtRelationship
         '
         'txtSystolic
         '
+        Me.txtSystolic.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Systolic", True))
         Me.txtSystolic.Location = New System.Drawing.Point(60, 48)
         Me.txtSystolic.Name = "txtSystolic"
         Me.txtSystolic.Size = New System.Drawing.Size(45, 20)
         Me.txtSystolic.TabIndex = 16
+        '
+        'CollabBindingSource
+        '
+        Me.CollabBindingSource.DataMember = "collab"
+        Me.CollabBindingSource.DataSource = Me.New_DatabaseDataSet
+        '
+        'New_DatabaseDataSet
+        '
+        Me.New_DatabaseDataSet.DataSetName = "New_DatabaseDataSet"
+        Me.New_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -283,6 +298,7 @@ Partial Class txtRelationship
         '
         'txtDiastolic
         '
+        Me.txtDiastolic.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Diastolic", True))
         Me.txtDiastolic.Location = New System.Drawing.Point(233, 48)
         Me.txtDiastolic.Name = "txtDiastolic"
         Me.txtDiastolic.Size = New System.Drawing.Size(45, 20)
@@ -320,6 +336,7 @@ Partial Class txtRelationship
         '
         'txtHeartBeat
         '
+        Me.txtHeartBeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "heartbeat", True))
         Me.txtHeartBeat.Location = New System.Drawing.Point(70, 77)
         Me.txtHeartBeat.Name = "txtHeartBeat"
         Me.txtHeartBeat.Size = New System.Drawing.Size(45, 20)
@@ -347,6 +364,7 @@ Partial Class txtRelationship
         '
         'txtTemperature
         '
+        Me.txtTemperature.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Temp", True))
         Me.txtTemperature.Location = New System.Drawing.Point(246, 77)
         Me.txtTemperature.Name = "txtTemperature"
         Me.txtTemperature.Size = New System.Drawing.Size(41, 20)
@@ -372,6 +390,7 @@ Partial Class txtRelationship
         '
         'txtRespiratoryRate
         '
+        Me.txtRespiratoryRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "RespiratoryRate", True))
         Me.txtRespiratoryRate.Location = New System.Drawing.Point(99, 104)
         Me.txtRespiratoryRate.Name = "txtRespiratoryRate"
         Me.txtRespiratoryRate.Size = New System.Drawing.Size(100, 20)
@@ -407,6 +426,7 @@ Partial Class txtRelationship
         '
         'TextBox7
         '
+        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "EmergencyContact", True))
         Me.TextBox7.Location = New System.Drawing.Point(113, 131)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 20)
@@ -432,6 +452,7 @@ Partial Class txtRelationship
         '
         'txtName
         '
+        Me.txtName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Name", True))
         Me.txtName.Location = New System.Drawing.Point(48, 156)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(100, 20)
@@ -448,6 +469,7 @@ Partial Class txtRelationship
         '
         'ComboBox1
         '
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Relationship", True))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Mother", "Father", "GrandFather", "GrandMother", "Sister", "Brother", "Cousin", "Others"})
         Me.ComboBox1.Location = New System.Drawing.Point(233, 156)
@@ -457,6 +479,7 @@ Partial Class txtRelationship
         '
         'txtSymptoms
         '
+        Me.txtSymptoms.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Symptoms", True))
         Me.txtSymptoms.Location = New System.Drawing.Point(7, 224)
         Me.txtSymptoms.Multiline = True
         Me.txtSymptoms.Name = "txtSymptoms"
@@ -474,6 +497,7 @@ Partial Class txtRelationship
         '
         'txtAllergies
         '
+        Me.txtAllergies.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Allergies", True))
         Me.txtAllergies.Location = New System.Drawing.Point(9, 280)
         Me.txtAllergies.Multiline = True
         Me.txtAllergies.Name = "txtAllergies"
@@ -491,6 +515,7 @@ Partial Class txtRelationship
         '
         'txtPastMedical
         '
+        Me.txtPastMedical.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "PastMedicalCondition", True))
         Me.txtPastMedical.Location = New System.Drawing.Point(7, 336)
         Me.txtPastMedical.Multiline = True
         Me.txtPastMedical.Name = "txtPastMedical"
@@ -545,6 +570,7 @@ Partial Class txtRelationship
         '
         'comboPainScale
         '
+        Me.comboPainScale.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Pain", True))
         Me.comboPainScale.FormattingEnabled = True
         Me.comboPainScale.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
         Me.comboPainScale.Location = New System.Drawing.Point(457, 360)
@@ -599,6 +625,7 @@ Partial Class txtRelationship
         '
         'txtLastMenstrualPeriod
         '
+        Me.txtLastMenstrualPeriod.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "FonlylastPeriod", True))
         Me.txtLastMenstrualPeriod.Location = New System.Drawing.Point(619, 301)
         Me.txtLastMenstrualPeriod.Name = "txtLastMenstrualPeriod"
         Me.txtLastMenstrualPeriod.Size = New System.Drawing.Size(60, 20)
@@ -615,6 +642,7 @@ Partial Class txtRelationship
         '
         'TimeTextBox
         '
+        Me.TimeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Time", True))
         Me.TimeTextBox.Location = New System.Drawing.Point(45, 7)
         Me.TimeTextBox.Name = "TimeTextBox"
         Me.TimeTextBox.Size = New System.Drawing.Size(100, 20)
@@ -622,6 +650,7 @@ Partial Class txtRelationship
         '
         'IdTextBox
         '
+        Me.IdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Id", True))
         Me.IdTextBox.Location = New System.Drawing.Point(221, 7)
         Me.IdTextBox.Name = "IdTextBox"
         Me.IdTextBox.Size = New System.Drawing.Size(100, 20)
@@ -689,8 +718,19 @@ Partial Class txtRelationship
         Me.Panel1.Size = New System.Drawing.Size(784, 401)
         Me.Panel1.TabIndex = 25
         '
+        'VapeSmokeDrinkComboBox
+        '
+        Me.VapeSmokeDrinkComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "VapeSmokeDrink", True))
+        Me.VapeSmokeDrinkComboBox.FormattingEnabled = True
+        Me.VapeSmokeDrinkComboBox.Items.AddRange(New Object() {"Yes", "No"})
+        Me.VapeSmokeDrinkComboBox.Location = New System.Drawing.Point(347, 130)
+        Me.VapeSmokeDrinkComboBox.Name = "VapeSmokeDrinkComboBox"
+        Me.VapeSmokeDrinkComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.VapeSmokeDrinkComboBox.TabIndex = 87
+        '
         'Pregnant
         '
+        Me.Pregnant.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Thinkmightbepregnant", True))
         Me.Pregnant.FormattingEnabled = True
         Me.Pregnant.Items.AddRange(New Object() {"Yes", "No"})
         Me.Pregnant.Location = New System.Drawing.Point(347, 336)
@@ -700,6 +740,7 @@ Partial Class txtRelationship
         '
         'Vaccine
         '
+        Me.Vaccine.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Vaccination", True))
         Me.Vaccine.FormattingEnabled = True
         Me.Vaccine.Items.AddRange(New Object() {"Yes", "No"})
         Me.Vaccine.Location = New System.Drawing.Point(347, 280)
@@ -709,6 +750,7 @@ Partial Class txtRelationship
         '
         'Ability
         '
+        Me.Ability.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "affectbody", True))
         Me.Ability.FormattingEnabled = True
         Me.Ability.Items.AddRange(New Object() {"Yes", "No"})
         Me.Ability.Location = New System.Drawing.Point(347, 246)
@@ -718,6 +760,7 @@ Partial Class txtRelationship
         '
         'Inherit
         '
+        Me.Inherit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Inheritable", True))
         Me.Inherit.FormattingEnabled = True
         Me.Inherit.Items.AddRange(New Object() {"Yes", "No"})
         Me.Inherit.Location = New System.Drawing.Point(347, 211)
@@ -727,6 +770,7 @@ Partial Class txtRelationship
         '
         'Symptoms
         '
+        Me.Symptoms.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "gottenbetter", True))
         Me.Symptoms.FormattingEnabled = True
         Me.Symptoms.Items.AddRange(New Object() {"Yes", "No"})
         Me.Symptoms.Location = New System.Drawing.Point(347, 171)
@@ -736,6 +780,7 @@ Partial Class txtRelationship
         '
         'Surgeries
         '
+        Me.Surgeries.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "Surgeries", True))
         Me.Surgeries.FormattingEnabled = True
         Me.Surgeries.Items.AddRange(New Object() {"Yes", "No"})
         Me.Surgeries.Location = New System.Drawing.Point(347, 93)
@@ -745,22 +790,13 @@ Partial Class txtRelationship
         '
         'Medication
         '
+        Me.Medication.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "TakingMedication", True))
         Me.Medication.FormattingEnabled = True
         Me.Medication.Items.AddRange(New Object() {"Yes", "No"})
         Me.Medication.Location = New System.Drawing.Point(347, 53)
         Me.Medication.Name = "Medication"
         Me.Medication.Size = New System.Drawing.Size(121, 21)
         Me.Medication.TabIndex = 79
-        '
-        'New_DatabaseDataSet
-        '
-        Me.New_DatabaseDataSet.DataSetName = "New_DatabaseDataSet"
-        Me.New_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CollabBindingSource
-        '
-        Me.CollabBindingSource.DataMember = "collab"
-        Me.CollabBindingSource.DataSource = Me.New_DatabaseDataSet
         '
         'CollabTableAdapter
         '
@@ -774,15 +810,6 @@ Partial Class txtRelationship
         Me.TableAdapterManager.nursesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Project.New_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usersTableAdapter = Nothing
-        '
-        'VapeSmokeDrinkComboBox
-        '
-        Me.VapeSmokeDrinkComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CollabBindingSource, "VapeSmokeDrink", True))
-        Me.VapeSmokeDrinkComboBox.FormattingEnabled = True
-        Me.VapeSmokeDrinkComboBox.Location = New System.Drawing.Point(347, 130)
-        Me.VapeSmokeDrinkComboBox.Name = "VapeSmokeDrinkComboBox"
-        Me.VapeSmokeDrinkComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.VapeSmokeDrinkComboBox.TabIndex = 87
         '
         'txtRelationship
         '
@@ -800,10 +827,10 @@ Partial Class txtRelationship
         Me.txtSurgeries.ResumeLayout(False)
         Me.txtSurgeries.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CollabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.New_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CollabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

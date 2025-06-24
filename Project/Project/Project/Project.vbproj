@@ -93,6 +93,12 @@
     <Compile Include="New_DatabaseDataSet.vb">
       <DependentUpon>New_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="NurseInformationForm.Designer.vb">
+      <DependentUpon>NurseInformationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NurseInformationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PasswordHelper.vb" />
     <Compile Include="PatientForm.Designer.vb">
       <DependentUpon>PatientForm.vb</DependentUpon>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NurseForm.resx">
       <DependentUpon>NurseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseInformationForm.resx">
+      <DependentUpon>NurseInformationForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientForm.resx">
       <DependentUpon>PatientForm.vb</DependentUpon>
