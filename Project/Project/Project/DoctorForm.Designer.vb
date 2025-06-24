@@ -157,7 +157,7 @@ Partial Class DoctorForm
         '
         Me.labelUserName.AutoSize = True
         Me.labelUserName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.labelUserName.Location = New System.Drawing.Point(79, 118)
+        Me.labelUserName.Location = New System.Drawing.Point(41, 130)
         Me.labelUserName.Name = "labelUserName"
         Me.labelUserName.Size = New System.Drawing.Size(48, 21)
         Me.labelUserName.TabIndex = 101
@@ -167,11 +167,11 @@ Partial Class DoctorForm
         '
         Me.labelUserId.AutoSize = True
         Me.labelUserId.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.labelUserId.Location = New System.Drawing.Point(79, 149)
+        Me.labelUserId.Location = New System.Drawing.Point(103, 131)
         Me.labelUserId.Name = "labelUserId"
-        Me.labelUserId.Size = New System.Drawing.Size(114, 20)
+        Me.labelUserId.Size = New System.Drawing.Size(24, 20)
         Me.labelUserId.TabIndex = 102
-        Me.labelUserId.Text = "ID: [ID Number]"
+        Me.labelUserId.Text = "ID"
         '
         'Panel3
         '

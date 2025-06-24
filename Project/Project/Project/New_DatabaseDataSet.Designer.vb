@@ -428,8 +428,6 @@ Partial Public Class New_DatabaseDataSet
         
         Private columnSurgeries As Global.System.Data.DataColumn
         
-        Private columnVapeSmokeDrink As Global.System.Data.DataColumn
-        
         Private columngottenbetter As Global.System.Data.DataColumn
         
         Private columnInheritable As Global.System.Data.DataColumn
@@ -463,6 +461,8 @@ Partial Public Class New_DatabaseDataSet
         Private columnAppointmentDate As Global.System.Data.DataColumn
         
         Private columnPain As Global.System.Data.DataColumn
+        
+        Private columnVapeSmokeDrink As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -621,14 +621,6 @@ Partial Public Class New_DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property VapeSmokeDrinkColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVapeSmokeDrink
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property gottenbetterColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columngottenbetter
@@ -764,6 +756,14 @@ Partial Public Class New_DatabaseDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property VapeSmokeDrinkColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVapeSmokeDrink
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -816,7 +816,6 @@ Partial Public Class New_DatabaseDataSet
                     ByVal PastMedicalCondition As String,  _
                     ByVal TakingMedication As String,  _
                     ByVal Surgeries As String,  _
-                    ByVal VapeSmokeDrink As String,  _
                     ByVal gottenbetter As String,  _
                     ByVal Inheritable As String,  _
                     ByVal affectbody As String,  _
@@ -833,9 +832,10 @@ Partial Public Class New_DatabaseDataSet
                     ByVal DateofBirth As Date,  _
                     ByVal Pic() As Byte,  _
                     ByVal AppointmentDate As Date,  _
-                    ByVal Pain As String) As collabRow
+                    ByVal Pain As String,  _
+                    ByVal VapeSmokeDrink As String) As collabRow
             Dim rowcollabRow As collabRow = CType(Me.NewRow,collabRow)
-            Dim columnValuesArray() As Object = New Object() {Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMedication, Surgeries, VapeSmokeDrink, gottenbetter, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain}
+            Dim columnValuesArray() As Object = New Object() {Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMedication, Surgeries, gottenbetter, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain, VapeSmokeDrink}
             rowcollabRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcollabRow)
             Return rowcollabRow
@@ -879,7 +879,6 @@ Partial Public Class New_DatabaseDataSet
             Me.columnPastMedicalCondition = MyBase.Columns("PastMedicalCondition")
             Me.columnTakingMedication = MyBase.Columns("TakingMedication")
             Me.columnSurgeries = MyBase.Columns("Surgeries")
-            Me.columnVapeSmokeDrink = MyBase.Columns("VapeSmokeDrink")
             Me.columngottenbetter = MyBase.Columns("gottenbetter")
             Me.columnInheritable = MyBase.Columns("Inheritable")
             Me.columnaffectbody = MyBase.Columns("affectbody")
@@ -897,6 +896,7 @@ Partial Public Class New_DatabaseDataSet
             Me.columnPic = MyBase.Columns("Pic")
             Me.columnAppointmentDate = MyBase.Columns("AppointmentDate")
             Me.columnPain = MyBase.Columns("Pain")
+            Me.columnVapeSmokeDrink = MyBase.Columns("VapeSmokeDrink")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -932,8 +932,6 @@ Partial Public Class New_DatabaseDataSet
             MyBase.Columns.Add(Me.columnTakingMedication)
             Me.columnSurgeries = New Global.System.Data.DataColumn("Surgeries", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSurgeries)
-            Me.columnVapeSmokeDrink = New Global.System.Data.DataColumn("VapeSmokeDrink", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVapeSmokeDrink)
             Me.columngottenbetter = New Global.System.Data.DataColumn("gottenbetter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columngottenbetter)
             Me.columnInheritable = New Global.System.Data.DataColumn("Inheritable", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -968,6 +966,8 @@ Partial Public Class New_DatabaseDataSet
             MyBase.Columns.Add(Me.columnAppointmentDate)
             Me.columnPain = New Global.System.Data.DataColumn("Pain", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPain)
+            Me.columnVapeSmokeDrink = New Global.System.Data.DataColumn("VapeSmokeDrink", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVapeSmokeDrink)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AllowDBNull = false
             Me.columnId.Unique = true
@@ -984,7 +984,6 @@ Partial Public Class New_DatabaseDataSet
             Me.columnPastMedicalCondition.MaxLength = 2147483647
             Me.columnTakingMedication.MaxLength = 2147483647
             Me.columnSurgeries.MaxLength = 2147483647
-            Me.columnVapeSmokeDrink.MaxLength = 2147483647
             Me.columngottenbetter.MaxLength = 2147483647
             Me.columnInheritable.MaxLength = 2147483647
             Me.columnaffectbody.MaxLength = 2147483647
@@ -999,6 +998,7 @@ Partial Public Class New_DatabaseDataSet
             Me.columnOccupation.MaxLength = 2147483647
             Me.columnStatus.MaxLength = 2147483647
             Me.columnPain.MaxLength = 2147483647
+            Me.columnVapeSmokeDrink.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1913,6 +1913,28 @@ Partial Public Class New_DatabaseDataSet
         
         Private columnDepartment As Global.System.Data.DataColumn
         
+        Private columnDateOfBirth As Global.System.Data.DataColumn
+        
+        Private columnFirstName As Global.System.Data.DataColumn
+        
+        Private columnLastName As Global.System.Data.DataColumn
+        
+        Private columnGender As Global.System.Data.DataColumn
+        
+        Private columnContactNumber As Global.System.Data.DataColumn
+        
+        Private columnQualifications As Global.System.Data.DataColumn
+        
+        Private columnYearsExperience As Global.System.Data.DataColumn
+        
+        Private columnLicenseNumber As Global.System.Data.DataColumn
+        
+        Private columnNursingSchool As Global.System.Data.DataColumn
+        
+        Private columnDateJoined As Global.System.Data.DataColumn
+        
+        Private columnStatus As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -1973,6 +1995,94 @@ Partial Public Class New_DatabaseDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DateOfBirthColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateOfBirth
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FirstNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFirstName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property LastNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property GenderColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGender
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ContactNumberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnContactNumber
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property QualificationsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnQualifications
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property YearsExperienceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnYearsExperience
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property LicenseNumberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLicenseNumber
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NursingSchoolColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNursingSchool
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DateJoinedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateJoined
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2009,9 +2119,9 @@ Partial Public Class New_DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddnursesRow(ByVal parentusersRowByFK__nurses__UserId__5CD6CB2B As usersRow, ByVal Department As String) As nursesRow
+        Public Overloads Function AddnursesRow(ByVal parentusersRowByFK__nurses__UserId__5CD6CB2B As usersRow, ByVal Department As String, ByVal DateOfBirth As Date, ByVal FirstName As String, ByVal LastName As String, ByVal Gender As String, ByVal ContactNumber As String, ByVal Qualifications As String, ByVal YearsExperience As Integer, ByVal LicenseNumber As String, ByVal NursingSchool As String, ByVal DateJoined As Date, ByVal Status As String) As nursesRow
             Dim rownursesRow As nursesRow = CType(Me.NewRow,nursesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Department}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Department, DateOfBirth, FirstName, LastName, Gender, ContactNumber, Qualifications, YearsExperience, LicenseNumber, NursingSchool, DateJoined, Status}
             If (Not (parentusersRowByFK__nurses__UserId__5CD6CB2B) Is Nothing) Then
                 columnValuesArray(1) = parentusersRowByFK__nurses__UserId__5CD6CB2B(0)
             End If
@@ -2046,6 +2156,17 @@ Partial Public Class New_DatabaseDataSet
             Me.columnNurseId = MyBase.Columns("NurseId")
             Me.columnUserId = MyBase.Columns("UserId")
             Me.columnDepartment = MyBase.Columns("Department")
+            Me.columnDateOfBirth = MyBase.Columns("DateOfBirth")
+            Me.columnFirstName = MyBase.Columns("FirstName")
+            Me.columnLastName = MyBase.Columns("LastName")
+            Me.columnGender = MyBase.Columns("Gender")
+            Me.columnContactNumber = MyBase.Columns("ContactNumber")
+            Me.columnQualifications = MyBase.Columns("Qualifications")
+            Me.columnYearsExperience = MyBase.Columns("YearsExperience")
+            Me.columnLicenseNumber = MyBase.Columns("LicenseNumber")
+            Me.columnNursingSchool = MyBase.Columns("NursingSchool")
+            Me.columnDateJoined = MyBase.Columns("DateJoined")
+            Me.columnStatus = MyBase.Columns("Status")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2057,6 +2178,28 @@ Partial Public Class New_DatabaseDataSet
             MyBase.Columns.Add(Me.columnUserId)
             Me.columnDepartment = New Global.System.Data.DataColumn("Department", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDepartment)
+            Me.columnDateOfBirth = New Global.System.Data.DataColumn("DateOfBirth", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateOfBirth)
+            Me.columnFirstName = New Global.System.Data.DataColumn("FirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFirstName)
+            Me.columnLastName = New Global.System.Data.DataColumn("LastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastName)
+            Me.columnGender = New Global.System.Data.DataColumn("Gender", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGender)
+            Me.columnContactNumber = New Global.System.Data.DataColumn("ContactNumber", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnContactNumber)
+            Me.columnQualifications = New Global.System.Data.DataColumn("Qualifications", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnQualifications)
+            Me.columnYearsExperience = New Global.System.Data.DataColumn("YearsExperience", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnYearsExperience)
+            Me.columnLicenseNumber = New Global.System.Data.DataColumn("LicenseNumber", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLicenseNumber)
+            Me.columnNursingSchool = New Global.System.Data.DataColumn("NursingSchool", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNursingSchool)
+            Me.columnDateJoined = New Global.System.Data.DataColumn("DateJoined", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateJoined)
+            Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStatus)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNurseId}, true))
             Me.columnNurseId.AutoIncrement = true
             Me.columnNurseId.AutoIncrementSeed = -1
@@ -2066,6 +2209,14 @@ Partial Public Class New_DatabaseDataSet
             Me.columnNurseId.Unique = true
             Me.columnUserId.AllowDBNull = false
             Me.columnDepartment.MaxLength = 100
+            Me.columnFirstName.MaxLength = 50
+            Me.columnLastName.MaxLength = 50
+            Me.columnGender.MaxLength = 10
+            Me.columnContactNumber.MaxLength = 20
+            Me.columnQualifications.MaxLength = 255
+            Me.columnLicenseNumber.MaxLength = 50
+            Me.columnNursingSchool.MaxLength = 100
+            Me.columnStatus.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2433,21 +2584,6 @@ Partial Public Class New_DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property VapeSmokeDrink() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecollab.VapeSmokeDrinkColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'VapeSmokeDrink' in table 'collab' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecollab.VapeSmokeDrinkColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property gottenbetter() As String
             Get
                 Try 
@@ -2703,6 +2839,21 @@ Partial Public Class New_DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property VapeSmokeDrink() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablecollab.VapeSmokeDrinkColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VapeSmokeDrink' in table 'collab' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecollab.VapeSmokeDrinkColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsTimeNull() As Boolean
             Return Me.IsNull(Me.tablecollab.TimeColumn)
         End Function
@@ -2867,18 +3018,6 @@ Partial Public Class New_DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetSurgeriesNull()
             Me(Me.tablecollab.SurgeriesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsVapeSmokeDrinkNull() As Boolean
-            Return Me.IsNull(Me.tablecollab.VapeSmokeDrinkColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetVapeSmokeDrinkNull()
-            Me(Me.tablecollab.VapeSmokeDrinkColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3083,6 +3222,18 @@ Partial Public Class New_DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetPainNull()
             Me(Me.tablecollab.PainColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsVapeSmokeDrinkNull() As Boolean
+            Return Me.IsNull(Me.tablecollab.VapeSmokeDrinkColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetVapeSmokeDrinkNull()
+            Me(Me.tablecollab.VapeSmokeDrinkColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3620,6 +3771,171 @@ Partial Public Class New_DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DateOfBirth() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.DateOfBirthColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateOfBirth' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.DateOfBirthColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FirstName() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.FirstNameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.FirstNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property LastName() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.LastNameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastName' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.LastNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Gender() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.GenderColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gender' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.GenderColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ContactNumber() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.ContactNumberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ContactNumber' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.ContactNumberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Qualifications() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.QualificationsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Qualifications' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.QualificationsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property YearsExperience() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.YearsExperienceColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'YearsExperience' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.YearsExperienceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property LicenseNumber() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.LicenseNumberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LicenseNumber' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.LicenseNumberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property NursingSchool() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.NursingSchoolColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NursingSchool' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.NursingSchoolColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DateJoined() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.DateJoinedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateJoined' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.DateJoinedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Status() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablenurses.StatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'nurses' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablenurses.StatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property usersRow() As usersRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__nurses__UserId__5CD6CB2B")),usersRow)
@@ -3639,6 +3955,138 @@ Partial Public Class New_DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetDepartmentNull()
             Me(Me.tablenurses.DepartmentColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDateOfBirthNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.DateOfBirthColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDateOfBirthNull()
+            Me(Me.tablenurses.DateOfBirthColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFirstNameNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.FirstNameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFirstNameNull()
+            Me(Me.tablenurses.FirstNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsLastNameNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.LastNameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetLastNameNull()
+            Me(Me.tablenurses.LastNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGenderNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.GenderColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGenderNull()
+            Me(Me.tablenurses.GenderColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsContactNumberNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.ContactNumberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetContactNumberNull()
+            Me(Me.tablenurses.ContactNumberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsQualificationsNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.QualificationsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetQualificationsNull()
+            Me(Me.tablenurses.QualificationsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsYearsExperienceNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.YearsExperienceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetYearsExperienceNull()
+            Me(Me.tablenurses.YearsExperienceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsLicenseNumberNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.LicenseNumberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetLicenseNumberNull()
+            Me(Me.tablenurses.LicenseNumberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNursingSchoolNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.NursingSchoolColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNursingSchoolNull()
+            Me(Me.tablenurses.NursingSchoolColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDateJoinedNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.DateJoinedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDateJoinedNull()
+            Me(Me.tablenurses.DateJoinedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsStatusNull() As Boolean
+            Return Me.IsNull(Me.tablenurses.StatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetStatusNull()
+            Me(Me.tablenurses.StatusColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3931,7 +4379,6 @@ Namespace New_DatabaseDataSetTableAdapters
             tableMapping.ColumnMappings.Add("PastMedicalCondition", "PastMedicalCondition")
             tableMapping.ColumnMappings.Add("TakingMedication", "TakingMedication")
             tableMapping.ColumnMappings.Add("Surgeries", "Surgeries")
-            tableMapping.ColumnMappings.Add("VapeSmokeDrink", "VapeSmokeDrink")
             tableMapping.ColumnMappings.Add("gottenbetter", "gottenbetter")
             tableMapping.ColumnMappings.Add("Inheritable", "Inheritable")
             tableMapping.ColumnMappings.Add("affectbody", "affectbody")
@@ -3949,6 +4396,7 @@ Namespace New_DatabaseDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Pic", "Pic")
             tableMapping.ColumnMappings.Add("AppointmentDate", "AppointmentDate")
             tableMapping.ColumnMappings.Add("Pain", "Pain")
+            tableMapping.ColumnMappings.Add("VapeSmokeDrink", "VapeSmokeDrink")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -3967,23 +4415,23 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AppointmentDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [collab] ([Id], [Time], [Systolic], [Diastolic], [heartbeat], [Temp]," &
-                " [RespiratoryRate], [EmergencyContact], [Name], [Relationship], [Symptoms], [All" &
-                "ergies], [PastMedicalCondition], [TakingMedication], [Surgeries], [VapeSmokeDr" &
-                "ink], [gottenbetter], [Inheritable], [affectbody], [Vaccination], [FonlylastPeri" &
-                "od], [Thinkmightbepregnant], [Phone], [Address], [Email], [Gender], [Nationality" &
-                "], [Occupation], [Status], [DateofBirth], [Pic], [AppointmentDate], [Pain]) VALU" &
-                "ES (@Id, @Time, @Systolic, @Diastolic, @heartbeat, @Temp, @RespiratoryRate, @Eme" &
-                "rgencyContact, @Name, @Relationship, @Symptoms, @Allergies, @PastMedicalConditio" &
-                "n, @TakingMedication, @Surgeries, @p1, @gottenbetter, @Inheritable, @affectbody," &
-                " @Vaccination, @FonlylastPeriod, @Thinkmightbepregnant, @Phone, @Address, @Email" &
-                ", @Gender, @Nationality, @Occupation, @Status, @DateofBirth, @Pic, @AppointmentD" &
-                "ate, @Pain);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, Time, Systolic, Diastolic, heartbeat, Temp, Respiratory" &
-                "Rate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastMedicalCond" &
-                "ition, TakingMedication, Surgeries, [VapeSmokeDrink], gottenbetter, Inheritabl" &
-                "e, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Addres" &
-                "s, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic, Appointment" &
-                "Date, Pain FROM collab WHERE (Id = @Id)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [collab] ([Id], [Time], [Systolic], [Diastolic], [heartbeat], [Temp],"& _ 
+                " [RespiratoryRate], [EmergencyContact], [Name], [Relationship], [Symptoms], [All"& _ 
+                "ergies], [PastMedicalCondition], [TakingMedication], [Surgeries], [gottenbetter]"& _ 
+                ", [Inheritable], [affectbody], [Vaccination], [FonlylastPeriod], [Thinkmightbepr"& _ 
+                "egnant], [Phone], [Address], [Email], [Gender], [Nationality], [Occupation], [St"& _ 
+                "atus], [DateofBirth], [Pic], [AppointmentDate], [Pain], [VapeSmokeDrink]) VALUES"& _ 
+                " (@Id, @Time, @Systolic, @Diastolic, @heartbeat, @Temp, @RespiratoryRate, @Emerg"& _ 
+                "encyContact, @Name, @Relationship, @Symptoms, @Allergies, @PastMedicalCondition,"& _ 
+                " @TakingMedication, @Surgeries, @gottenbetter, @Inheritable, @affectbody, @Vacci"& _ 
+                "nation, @FonlylastPeriod, @Thinkmightbepregnant, @Phone, @Address, @Email, @Gend"& _ 
+                "er, @Nationality, @Occupation, @Status, @DateofBirth, @Pic, @AppointmentDate, @P"& _ 
+                "ain, @VapeSmokeDrink);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Time, Systolic, Diastolic, heartbeat, Temp, R"& _ 
+                "espiratoryRate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastM"& _ 
+                "edicalCondition, TakingMedication, Surgeries, gottenbetter, Inheritable, affectb"& _ 
+                "ody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, "& _ 
+                "Gender, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain"& _ 
+                ", VapeSmokeDrink FROM collab WHERE (Id = @Id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4000,7 +4448,6 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PastMedicalCondition", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PastMedicalCondition", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TakingMedication", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TakingMedication", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Surgeries", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Surgeries", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@p1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VapeSmokeDrink", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gottenbetter", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "gottenbetter", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inheritable", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inheritable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@affectbody", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "affectbody", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4018,29 +4465,30 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pic", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pic", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AppointmentDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pain", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VapeSmokeDrink", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VapeSmokeDrink", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [collab] SET [Id] = @Id, [Time] = @Time, [Systolic] = @Systolic, [Diastoli" &
-                "c] = @Diastolic, [heartbeat] = @heartbeat, [Temp] = @Temp, [RespiratoryRate] = @" &
-                "RespiratoryRate, [EmergencyContact] = @EmergencyContact, [Name] = @Name, [Relati" &
-                "onship] = @Relationship, [Symptoms] = @Symptoms, [Allergies] = @Allergies, [Past" &
-                "MedicalCondition] = @PastMedicalCondition, [TakingMedication] = @TakingMedicatio" &
-                "n, [Surgeries] = @Surgeries, [VapeSmokeDrink] = @p1, [gottenbetter] = @gottenb" &
-                "etter, [Inheritable] = @Inheritable, [affectbody] = @affectbody, [Vaccination] =" &
-                " @Vaccination, [FonlylastPeriod] = @FonlylastPeriod, [Thinkmightbepregnant] = @T" &
-                "hinkmightbepregnant, [Phone] = @Phone, [Address] = @Address, [Email] = @Email, [" &
-                "Gender] = @Gender, [Nationality] = @Nationality, [Occupation] = @Occupation, [St" &
-                "atus] = @Status, [DateofBirth] = @DateofBirth, [Pic] = @Pic, [AppointmentDate] =" &
-                " @AppointmentDate, [Pain] = @Pain WHERE (([Id] = @Original_Id) AND ((@IsNull_Tim" &
-                "e = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_DateofBirt" &
-                "h = 1 AND [DateofBirth] IS NULL) OR ([DateofBirth] = @Original_DateofBirth)) AND" &
-                " ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([AppointmentDa" &
-                "te] = @Original_AppointmentDate)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, Time, Systolic, Diastolic, heart" &
-                "beat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Symptoms, All" &
-                "ergies, PastMedicalCondition, TakingMedication, Surgeries, [VapeSmokeDrink], g" &
-                "ottenbetter, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbe" &
-                "pregnant, Phone, Address, Email, Gender, Nationality, Occupation, Status, Dateof" &
-                "Birth, Pic, AppointmentDate, Pain FROM collab WHERE (Id = @Id)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [collab] SET [Id] = @Id, [Time] = @Time, [Systolic] = @Systolic, [Diastoli"& _ 
+                "c] = @Diastolic, [heartbeat] = @heartbeat, [Temp] = @Temp, [RespiratoryRate] = @"& _ 
+                "RespiratoryRate, [EmergencyContact] = @EmergencyContact, [Name] = @Name, [Relati"& _ 
+                "onship] = @Relationship, [Symptoms] = @Symptoms, [Allergies] = @Allergies, [Past"& _ 
+                "MedicalCondition] = @PastMedicalCondition, [TakingMedication] = @TakingMedicatio"& _ 
+                "n, [Surgeries] = @Surgeries, [gottenbetter] = @gottenbetter, [Inheritable] = @In"& _ 
+                "heritable, [affectbody] = @affectbody, [Vaccination] = @Vaccination, [FonlylastP"& _ 
+                "eriod] = @FonlylastPeriod, [Thinkmightbepregnant] = @Thinkmightbepregnant, [Phon"& _ 
+                "e] = @Phone, [Address] = @Address, [Email] = @Email, [Gender] = @Gender, [Nation"& _ 
+                "ality] = @Nationality, [Occupation] = @Occupation, [Status] = @Status, [DateofBi"& _ 
+                "rth] = @DateofBirth, [Pic] = @Pic, [AppointmentDate] = @AppointmentDate, [Pain] "& _ 
+                "= @Pain, [VapeSmokeDrink] = @VapeSmokeDrink WHERE (([Id] = @Original_Id) AND ((@"& _ 
+                "IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_"& _ 
+                "DateofBirth = 1 AND [DateofBirth] IS NULL) OR ([DateofBirth] = @Original_DateofB"& _ 
+                "irth)) AND ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([App"& _ 
+                "ointmentDate] = @Original_AppointmentDate)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Time, Systolic, Diasto"& _ 
+                "lic, heartbeat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Sym"& _ 
+                "ptoms, Allergies, PastMedicalCondition, TakingMedication, Surgeries, gottenbette"& _ 
+                "r, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, "& _ 
+                "Phone, Address, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic"& _ 
+                ", AppointmentDate, Pain, VapeSmokeDrink FROM collab WHERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4057,7 +4505,6 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PastMedicalCondition", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PastMedicalCondition", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TakingMedication", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TakingMedication", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Surgeries", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Surgeries", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@p1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VapeSmokeDrink", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gottenbetter", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "gottenbetter", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inheritable", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inheritable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@affectbody", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "affectbody", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4075,6 +4522,7 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pic", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pic", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AppointmentDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pain", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VapeSmokeDrink", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VapeSmokeDrink", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Time", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -4097,12 +4545,12 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, Emergency" &
-                "Contact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMe" &
-                "dication, Surgeries, [VapeSmokeDrink], gottenbetter, Inheritable, affectbody, " &
-                "Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, Gende" &
-                "r, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain, Vap" &
-                "eSmokeDrink FROM collab"
+            Me._commandCollection(0).CommandText = "SELECT Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, Emergency"& _ 
+                "Contact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMe"& _ 
+                "dication, Surgeries, gottenbetter, Inheritable, affectbody, Vaccination, Fonlyla"& _ 
+                "stPeriod, Thinkmightbepregnant, Phone, Address, Email, Gender, Nationality, Occu"& _ 
+                "pation, Status, DateofBirth, Pic, AppointmentDate, Pain, VapeSmokeDrink FROM col"& _ 
+                "lab"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4220,7 +4668,6 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal PastMedicalCondition As String,  _
                     ByVal TakingMedication As String,  _
                     ByVal Surgeries As String,  _
-                    ByVal p1 As String,  _
                     ByVal gottenbetter As String,  _
                     ByVal Inheritable As String,  _
                     ByVal affectbody As String,  _
@@ -4237,7 +4684,8 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal DateofBirth As Global.System.Nullable(Of Date),  _
                     ByVal Pic() As Byte,  _
                     ByVal AppointmentDate As Global.System.Nullable(Of Date),  _
-                    ByVal Pain As String) As Integer
+                    ByVal Pain As String,  _
+                    ByVal VapeSmokeDrink As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(Id,Integer)
             If (Time.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Time.Value,System.TimeSpan)
@@ -4309,95 +4757,95 @@ Namespace New_DatabaseDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(14).Value = CType(Surgeries,String)
             End If
-            If (p1 Is Nothing) Then
+            If (gottenbetter Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(p1,String)
-            End If
-            If (gottenbetter Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(gottenbetter,String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(gottenbetter,String)
             End If
             If (Inheritable Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(Inheritable,String)
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(Inheritable,String)
             End If
             If (affectbody Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(affectbody,String)
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(affectbody,String)
             End If
             If (Vaccination Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(Vaccination,String)
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(Vaccination,String)
             End If
             If (FonlylastPeriod Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(FonlylastPeriod,String)
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(FonlylastPeriod,String)
             End If
             If (Thinkmightbepregnant Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Thinkmightbepregnant,String)
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(Thinkmightbepregnant,String)
             End If
             If (Phone Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(Phone,String)
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Phone,String)
             End If
             If (Address Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(Address,String)
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(Address,String)
             End If
             If (Email Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(Email,String)
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(Email,String)
             End If
             If (Gender Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Gender,String)
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(Gender,String)
             End If
             If (Nationality Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Nationality,String)
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Nationality,String)
             End If
             If (Occupation Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Occupation,String)
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Occupation,String)
             End If
             If (Status Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(Status,String)
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Status,String)
             End If
             If (DateofBirth.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(DateofBirth.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(DateofBirth.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
             If (Pic Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(Pic,Byte())
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Pic,Byte())
             End If
             If (AppointmentDate.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(AppointmentDate.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(AppointmentDate.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Pain Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(Pain,String)
+            End If
+            If (VapeSmokeDrink Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(Pain,String)
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(VapeSmokeDrink,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4434,7 +4882,6 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal PastMedicalCondition As String,  _
                     ByVal TakingMedication As String,  _
                     ByVal Surgeries As String,  _
-                    ByVal p1 As String,  _
                     ByVal gottenbetter As String,  _
                     ByVal Inheritable As String,  _
                     ByVal affectbody As String,  _
@@ -4452,6 +4899,7 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal Pic() As Byte,  _
                     ByVal AppointmentDate As Global.System.Nullable(Of Date),  _
                     ByVal Pain As String,  _
+                    ByVal VapeSmokeDrink As String,  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_Time As Global.System.Nullable(Of Global.System.TimeSpan),  _
                     ByVal Original_DateofBirth As Global.System.Nullable(Of Date),  _
@@ -4527,95 +4975,95 @@ Namespace New_DatabaseDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Surgeries,String)
             End If
-            If (p1 Is Nothing) Then
+            If (gottenbetter Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p1,String)
-            End If
-            If (gottenbetter Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(gottenbetter,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(gottenbetter,String)
             End If
             If (Inheritable Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Inheritable,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Inheritable,String)
             End If
             If (affectbody Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(affectbody,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(affectbody,String)
             End If
             If (Vaccination Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Vaccination,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Vaccination,String)
             End If
             If (FonlylastPeriod Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(FonlylastPeriod,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(FonlylastPeriod,String)
             End If
             If (Thinkmightbepregnant Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Thinkmightbepregnant,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Thinkmightbepregnant,String)
             End If
             If (Phone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Phone,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Phone,String)
             End If
             If (Address Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Address,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Address,String)
             End If
             If (Email Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Email,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Email,String)
             End If
             If (Gender Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Gender,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Gender,String)
             End If
             If (Nationality Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Nationality,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Nationality,String)
             End If
             If (Occupation Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Occupation,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Occupation,String)
             End If
             If (Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Status,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Status,String)
             End If
             If (DateofBirth.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(DateofBirth.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(DateofBirth.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
             If (Pic Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Pic,Byte())
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Pic,Byte())
             End If
             If (AppointmentDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(AppointmentDate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(AppointmentDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Pain Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Pain,String)
+            End If
+            If (VapeSmokeDrink Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Pain,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(VapeSmokeDrink,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Id,Integer)
             If (Original_Time.HasValue = true) Then
@@ -4673,7 +5121,6 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal PastMedicalCondition As String,  _
                     ByVal TakingMedication As String,  _
                     ByVal Surgeries As String,  _
-                    ByVal p1 As String,  _
                     ByVal gottenbetter As String,  _
                     ByVal Inheritable As String,  _
                     ByVal affectbody As String,  _
@@ -4691,11 +5138,12 @@ Namespace New_DatabaseDataSetTableAdapters
                     ByVal Pic() As Byte,  _
                     ByVal AppointmentDate As Global.System.Nullable(Of Date),  _
                     ByVal Pain As String,  _
+                    ByVal VapeSmokeDrink As String,  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_Time As Global.System.Nullable(Of Global.System.TimeSpan),  _
                     ByVal Original_DateofBirth As Global.System.Nullable(Of Date),  _
                     ByVal Original_AppointmentDate As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMedication, Surgeries, p1, gottenbetter, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain, Original_Id, Original_Time, Original_DateofBirth, Original_AppointmentDate)
+            Return Me.Update(Original_Id, Time, Systolic, Diastolic, heartbeat, Temp, RespiratoryRate, EmergencyContact, Name, Relationship, Symptoms, Allergies, PastMedicalCondition, TakingMedication, Surgeries, gottenbetter, Inheritable, affectbody, Vaccination, FonlylastPeriod, Thinkmightbepregnant, Phone, Address, Email, Gender, Nationality, Occupation, Status, DateofBirth, Pic, AppointmentDate, Pain, VapeSmokeDrink, Original_Id, Original_Time, Original_DateofBirth, Original_AppointmentDate)
         End Function
     End Class
     
@@ -6008,38 +6456,154 @@ Namespace New_DatabaseDataSetTableAdapters
             tableMapping.ColumnMappings.Add("NurseId", "NurseId")
             tableMapping.ColumnMappings.Add("UserId", "UserId")
             tableMapping.ColumnMappings.Add("Department", "Department")
+            tableMapping.ColumnMappings.Add("DateOfBirth", "DateOfBirth")
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName")
+            tableMapping.ColumnMappings.Add("LastName", "LastName")
+            tableMapping.ColumnMappings.Add("Gender", "Gender")
+            tableMapping.ColumnMappings.Add("ContactNumber", "ContactNumber")
+            tableMapping.ColumnMappings.Add("Qualifications", "Qualifications")
+            tableMapping.ColumnMappings.Add("YearsExperience", "YearsExperience")
+            tableMapping.ColumnMappings.Add("LicenseNumber", "LicenseNumber")
+            tableMapping.ColumnMappings.Add("NursingSchool", "NursingSchool")
+            tableMapping.ColumnMappings.Add("DateJoined", "DateJoined")
+            tableMapping.ColumnMappings.Add("Status", "Status")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[nurses] WHERE (([NurseId] = @Original_NurseId) AND ([UserId] ="& _ 
-                " @Original_UserId) AND ((@IsNull_Department = 1 AND [Department] IS NULL) OR ([D"& _ 
-                "epartment] = @Original_Department)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [nurses] WHERE (([NurseId] = @Original_NurseId) AND ([UserId] = @Orig"& _ 
+                "inal_UserId) AND ((@IsNull_Department = 1 AND [Department] IS NULL) OR ([Departm"& _ 
+                "ent] = @Original_Department)) AND ((@IsNull_ContactNumber = 1 AND [ContactNumber"& _ 
+                "] IS NULL) OR ([ContactNumber] = @Original_ContactNumber)) AND ((@IsNull_DateJoi"& _ 
+                "ned = 1 AND [DateJoined] IS NULL) OR ([DateJoined] = @Original_DateJoined)) AND "& _ 
+                "((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Origin"& _ 
+                "al_DateOfBirth)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([First"& _ 
+                "Name] = @Original_FirstName)) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR "& _ 
+                "([Gender] = @Original_Gender)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL"& _ 
+                ") OR ([LastName] = @Original_LastName)) AND ((@IsNull_LicenseNumber = 1 AND [Lic"& _ 
+                "enseNumber] IS NULL) OR ([LicenseNumber] = @Original_LicenseNumber)) AND ((@IsNu"& _ 
+                "ll_NursingSchool = 1 AND [NursingSchool] IS NULL) OR ([NursingSchool] = @Origina"& _ 
+                "l_NursingSchool)) AND ((@IsNull_Qualifications = 1 AND [Qualifications] IS NULL)"& _ 
+                " OR ([Qualifications] = @Original_Qualifications)) AND ((@IsNull_Status = 1 AND "& _ 
+                "[Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_YearsExperienc"& _ 
+                "e = 1 AND [YearsExperience] IS NULL) OR ([YearsExperience] = @Original_YearsExpe"& _ 
+                "rience)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NurseId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NurseId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Department", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Department", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContactNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContactNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateJoined", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Gender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Gender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LastName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LicenseNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LicenseNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_NursingSchool", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NursingSchool", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Qualifications", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qualifications", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[nurses] ([UserId], [Department]) VALUES (@UserId, @Department)"& _ 
-                ";"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NurseId, UserId, Department FROM nurses WHERE (NurseId = SCOPE_IDENTIT"& _ 
-                "Y())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [nurses] ([UserId], [Department], [ContactNumber], [DateJoined], [Dat"& _ 
+                "eOfBirth], [FirstName], [Gender], [LastName], [LicenseNumber], [NursingSchool], "& _ 
+                "[Qualifications], [Status], [YearsExperience]) VALUES (@UserId, @Department, @Co"& _ 
+                "ntactNumber, @DateJoined, @DateOfBirth, @FirstName, @Gender, @LastName, @License"& _ 
+                "Number, @NursingSchool, @Qualifications, @Status, @YearsExperience);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Nur"& _ 
+                "seId, UserId, Department, ContactNumber, DateJoined, DateOfBirth, FirstName, Gen"& _ 
+                "der, LastName, LicenseNumber, NursingSchool, Qualifications, Status, YearsExperi"& _ 
+                "ence FROM nurses WHERE (NurseId = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Department", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateOfBirth", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LicenseNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NursingSchool", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qualifications", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[nurses] SET [UserId] = @UserId, [Department] = @Department WHERE (("& _ 
-                "[NurseId] = @Original_NurseId) AND ([UserId] = @Original_UserId) AND ((@IsNull_D"& _ 
-                "epartment = 1 AND [Department] IS NULL) OR ([Department] = @Original_Department)"& _ 
-                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NurseId, UserId, Department FROM nurses WHERE (NurseId = @NurseId)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [nurses] SET [UserId] = @UserId, [Department] = @Department, [ContactNumbe"& _ 
+                "r] = @ContactNumber, [DateJoined] = @DateJoined, [DateOfBirth] = @DateOfBirth, ["& _ 
+                "FirstName] = @FirstName, [Gender] = @Gender, [LastName] = @LastName, [LicenseNum"& _ 
+                "ber] = @LicenseNumber, [NursingSchool] = @NursingSchool, [Qualifications] = @Qua"& _ 
+                "lifications, [Status] = @Status, [YearsExperience] = @YearsExperience WHERE (([N"& _ 
+                "urseId] = @Original_NurseId) AND ([UserId] = @Original_UserId) AND ((@IsNull_Dep"& _ 
+                "artment = 1 AND [Department] IS NULL) OR ([Department] = @Original_Department)) "& _ 
+                "AND ((@IsNull_ContactNumber = 1 AND [ContactNumber] IS NULL) OR ([ContactNumber]"& _ 
+                " = @Original_ContactNumber)) AND ((@IsNull_DateJoined = 1 AND [DateJoined] IS NU"& _ 
+                "LL) OR ([DateJoined] = @Original_DateJoined)) AND ((@IsNull_DateOfBirth = 1 AND "& _ 
+                "[DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ((@IsNull"& _ 
+                "_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) "& _ 
+                "AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender))"& _ 
+                " AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_L"& _ 
+                "astName)) AND ((@IsNull_LicenseNumber = 1 AND [LicenseNumber] IS NULL) OR ([Lice"& _ 
+                "nseNumber] = @Original_LicenseNumber)) AND ((@IsNull_NursingSchool = 1 AND [Nurs"& _ 
+                "ingSchool] IS NULL) OR ([NursingSchool] = @Original_NursingSchool)) AND ((@IsNul"& _ 
+                "l_Qualifications = 1 AND [Qualifications] IS NULL) OR ([Qualifications] = @Origi"& _ 
+                "nal_Qualifications)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status]"& _ 
+                " = @Original_Status)) AND ((@IsNull_YearsExperience = 1 AND [YearsExperience] IS"& _ 
+                " NULL) OR ([YearsExperience] = @Original_YearsExperience)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NurseId, Us"& _ 
+                "erId, Department, ContactNumber, DateJoined, DateOfBirth, FirstName, Gender, Las"& _ 
+                "tName, LicenseNumber, NursingSchool, Qualifications, Status, YearsExperience FRO"& _ 
+                "M nurses WHERE (NurseId = @NurseId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Department", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateOfBirth", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LicenseNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NursingSchool", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qualifications", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NurseId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NurseId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Department", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Department", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Department", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContactNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContactNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateJoined", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateJoined", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Gender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Gender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LastName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LicenseNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LicenseNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LicenseNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_NursingSchool", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NursingSchool", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NursingSchool", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Qualifications", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qualifications", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qualifications", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_YearsExperience", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "YearsExperience", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NurseId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NurseId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -6056,7 +6620,9 @@ Namespace New_DatabaseDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT NurseId, UserId, Department FROM dbo.nurses"
+            Me._commandCollection(0).CommandText = "SELECT NurseId, UserId, Department, ContactNumber, DateJoined, DateOfBirth, First"& _ 
+                "Name, Gender, LastName, LicenseNumber, NursingSchool, Qualifications, Status, Ye"& _ 
+                "arsExperience FROM nurses"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -6116,7 +6682,7 @@ Namespace New_DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NurseId As Integer, ByVal Original_UserId As Integer, ByVal Original_Department As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NurseId As Integer, ByVal Original_UserId As Integer, ByVal Original_Department As String, ByVal Original_ContactNumber As String, ByVal Original_DateJoined As Global.System.Nullable(Of Date), ByVal Original_DateOfBirth As Global.System.Nullable(Of Date), ByVal Original_FirstName As String, ByVal Original_Gender As String, ByVal Original_LastName As String, ByVal Original_LicenseNumber As String, ByVal Original_NursingSchool As String, ByVal Original_Qualifications As String, ByVal Original_Status As String, ByVal Original_YearsExperience As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NurseId,Integer)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_UserId,Integer)
             If (Original_Department Is Nothing) Then
@@ -6125,6 +6691,83 @@ Namespace New_DatabaseDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Department,String)
+            End If
+            If (Original_ContactNumber Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ContactNumber,String)
+            End If
+            If (Original_DateJoined.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_DateJoined.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DateOfBirth.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_DateOfBirth.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FirstName Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_FirstName,String)
+            End If
+            If (Original_Gender Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_Gender,String)
+            End If
+            If (Original_LastName Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_LastName,String)
+            End If
+            If (Original_LicenseNumber Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_LicenseNumber,String)
+            End If
+            If (Original_NursingSchool Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_NursingSchool,String)
+            End If
+            If (Original_Qualifications Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Qualifications,String)
+            End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_Status,String)
+            End If
+            If (Original_YearsExperience.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_YearsExperience.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6145,12 +6788,67 @@ Namespace New_DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal UserId As Integer, ByVal Department As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal UserId As Integer, ByVal Department As String, ByVal ContactNumber As String, ByVal DateJoined As Global.System.Nullable(Of Date), ByVal DateOfBirth As Global.System.Nullable(Of Date), ByVal FirstName As String, ByVal Gender As String, ByVal LastName As String, ByVal LicenseNumber As String, ByVal NursingSchool As String, ByVal Qualifications As String, ByVal Status As String, ByVal YearsExperience As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(UserId,Integer)
             If (Department Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Department,String)
+            End If
+            If (ContactNumber Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(ContactNumber,String)
+            End If
+            If (DateJoined.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DateJoined.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (DateOfBirth.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(DateOfBirth.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (FirstName Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FirstName,String)
+            End If
+            If (Gender Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Gender,String)
+            End If
+            If (LastName Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(LastName,String)
+            End If
+            If (LicenseNumber Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(LicenseNumber,String)
+            End If
+            If (NursingSchool Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(NursingSchool,String)
+            End If
+            If (Qualifications Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Qualifications,String)
+            End If
+            If (Status Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Status,String)
+            End If
+            If (YearsExperience.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(YearsExperience.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6171,23 +6869,183 @@ Namespace New_DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal UserId As Integer, ByVal Department As String, ByVal Original_NurseId As Integer, ByVal Original_UserId As Integer, ByVal Original_Department As String, ByVal NurseId As Integer) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal UserId As Integer,  _
+                    ByVal Department As String,  _
+                    ByVal ContactNumber As String,  _
+                    ByVal DateJoined As Global.System.Nullable(Of Date),  _
+                    ByVal DateOfBirth As Global.System.Nullable(Of Date),  _
+                    ByVal FirstName As String,  _
+                    ByVal Gender As String,  _
+                    ByVal LastName As String,  _
+                    ByVal LicenseNumber As String,  _
+                    ByVal NursingSchool As String,  _
+                    ByVal Qualifications As String,  _
+                    ByVal Status As String,  _
+                    ByVal YearsExperience As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_NurseId As Integer,  _
+                    ByVal Original_UserId As Integer,  _
+                    ByVal Original_Department As String,  _
+                    ByVal Original_ContactNumber As String,  _
+                    ByVal Original_DateJoined As Global.System.Nullable(Of Date),  _
+                    ByVal Original_DateOfBirth As Global.System.Nullable(Of Date),  _
+                    ByVal Original_FirstName As String,  _
+                    ByVal Original_Gender As String,  _
+                    ByVal Original_LastName As String,  _
+                    ByVal Original_LicenseNumber As String,  _
+                    ByVal Original_NursingSchool As String,  _
+                    ByVal Original_Qualifications As String,  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_YearsExperience As Global.System.Nullable(Of Integer),  _
+                    ByVal NurseId As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(UserId,Integer)
             If (Department Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Department,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_NurseId,Integer)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_UserId,Integer)
-            If (Original_Department Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+            If (ContactNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ContactNumber,String)
+            End If
+            If (DateJoined.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DateJoined.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (DateOfBirth.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DateOfBirth.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (FirstName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Department,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FirstName,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(NurseId,Integer)
+            If (Gender Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Gender,String)
+            End If
+            If (LastName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(LastName,String)
+            End If
+            If (LicenseNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(LicenseNumber,String)
+            End If
+            If (NursingSchool Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(NursingSchool,String)
+            End If
+            If (Qualifications Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Qualifications,String)
+            End If
+            If (Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Status,String)
+            End If
+            If (YearsExperience.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(YearsExperience.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_NurseId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_UserId,Integer)
+            If (Original_Department Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Department,String)
+            End If
+            If (Original_ContactNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ContactNumber,String)
+            End If
+            If (Original_DateJoined.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_DateJoined.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DateOfBirth.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_DateOfBirth.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FirstName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_FirstName,String)
+            End If
+            If (Original_Gender Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Gender,String)
+            End If
+            If (Original_LastName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_LastName,String)
+            End If
+            If (Original_LicenseNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_LicenseNumber,String)
+            End If
+            If (Original_NursingSchool Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_NursingSchool,String)
+            End If
+            If (Original_Qualifications Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_Qualifications,String)
+            End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Status,String)
+            End If
+            If (Original_YearsExperience.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_YearsExperience.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(NurseId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6207,8 +7065,35 @@ Namespace New_DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal UserId As Integer, ByVal Department As String, ByVal Original_NurseId As Integer, ByVal Original_UserId As Integer, ByVal Original_Department As String) As Integer
-            Return Me.Update(UserId, Department, Original_NurseId, Original_UserId, Original_Department, Original_NurseId)
+        Public Overloads Overridable Function Update( _
+                    ByVal UserId As Integer,  _
+                    ByVal Department As String,  _
+                    ByVal ContactNumber As String,  _
+                    ByVal DateJoined As Global.System.Nullable(Of Date),  _
+                    ByVal DateOfBirth As Global.System.Nullable(Of Date),  _
+                    ByVal FirstName As String,  _
+                    ByVal Gender As String,  _
+                    ByVal LastName As String,  _
+                    ByVal LicenseNumber As String,  _
+                    ByVal NursingSchool As String,  _
+                    ByVal Qualifications As String,  _
+                    ByVal Status As String,  _
+                    ByVal YearsExperience As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_NurseId As Integer,  _
+                    ByVal Original_UserId As Integer,  _
+                    ByVal Original_Department As String,  _
+                    ByVal Original_ContactNumber As String,  _
+                    ByVal Original_DateJoined As Global.System.Nullable(Of Date),  _
+                    ByVal Original_DateOfBirth As Global.System.Nullable(Of Date),  _
+                    ByVal Original_FirstName As String,  _
+                    ByVal Original_Gender As String,  _
+                    ByVal Original_LastName As String,  _
+                    ByVal Original_LicenseNumber As String,  _
+                    ByVal Original_NursingSchool As String,  _
+                    ByVal Original_Qualifications As String,  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_YearsExperience As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(UserId, Department, ContactNumber, DateJoined, DateOfBirth, FirstName, Gender, LastName, LicenseNumber, NursingSchool, Qualifications, Status, YearsExperience, Original_NurseId, Original_UserId, Original_Department, Original_ContactNumber, Original_DateJoined, Original_DateOfBirth, Original_FirstName, Original_Gender, Original_LastName, Original_LicenseNumber, Original_NursingSchool, Original_Qualifications, Original_Status, Original_YearsExperience, Original_NurseId)
         End Function
     End Class
     
